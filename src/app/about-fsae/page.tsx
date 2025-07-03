@@ -1,12 +1,12 @@
 import Navbar from "@/components/Navbar";
-import Home from "@/components/Home";
 import Footer from "@/components/Footer";
+import AboutFsae from "@/components/AboutFsae";
 
-export default function HomePage() {
+export default function AboutFsaePage() {
   return (
     <>
       <Navbar />
-      <Home />
+      <AboutFsae />
       <Footer />
     </>
   );

@@ -1,12 +1,12 @@
 import Navbar from "@/components/Navbar";
-import Home from "@/components/Home";
+import OurCars from "@/components/OurCars";
 import Footer from "@/components/Footer";
 
-export default function HomePage() {
+export default function OurCarsPage() {
   return (
     <>
       <Navbar />
-      <Home />
+      <OurCars />
       <Footer />
     </>
   );
