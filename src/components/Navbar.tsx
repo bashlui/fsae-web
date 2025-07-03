@@ -3,9 +3,12 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
+import { useTheme } from '@/context/ThemeContext';
+import { MdLightMode, MdDarkMode } from 'react-icons/md';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const { theme, toggleTheme } = useTheme();
 
   const navItems = [
     { href: '/', label: 'Home' },
@@ -43,15 +46,33 @@ export default function Navbar() {
                 </Button>
               </div>
             ))}
+            
+            {/* Theme Toggle Button */}
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={toggleTheme}
+              className="text-white/90 hover:text-red-600 hover:bg-white/10 transition-colors duration-200 ml-4"
+            >
+              {theme === 'light' ? <MdDarkMode size={20} /> : <MdLightMode size={20} />}
+            </Button>
           </div>
 
-          {/* Mobile menu button */}
-          <div className="md:hidden">
+          {/* Mobile menu button and theme toggle */}
+          <div className="md:hidden flex items-center space-x-2">
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={toggleTheme}
+              className="text-white/90 hover:text-red-600 hover:bg-white/10"
+            >
+              {theme === 'light' ? <MdDarkMode size={18} /> : <MdLightMode size={18} />}
+            </Button>
             <Button
               variant="ghost"
               size="sm"
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-700 hover:text-red-600 hover:bg-red-50"
+              className="text-white/90 hover:text-red-600 hover:bg-white/10"
             >
               <div>
                 <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -64,13 +85,13 @@ export default function Navbar() {
 
         {/* Mobile Navigation */}
         <div className={`md:hidden overflow-hidden transition-all duration-300 ${isOpen ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0'}`}>
-          <div className="py-4 space-y-1 border-t border-gray-100">
+          <div className="py-4 space-y-1 border-t border-white/20">
             {navItems.map((item) => (
               <div key={item.href}>
                 <Button
                   variant="ghost"
                   asChild
-                  className="w-full justify-start text-gray-700 hover:text-red-600 hover:bg-red-50 font-light"
+                  className="w-full justify-start text-white/90 hover:text-red-600 hover:bg-white/10 font-light"
                   onClick={() => setIsOpen(false)}
                 >
                   <Link href={item.href}>

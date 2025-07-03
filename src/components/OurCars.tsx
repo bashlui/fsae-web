@@ -26,8 +26,8 @@ export default function OurCars() {
                 'Optimized for torsional rigidity',
                 'FEA-validated design for safety compliance'
             ],
-            color: 'bg-gray-50 text-gray-700 border-gray-200',
-            accentColor: 'text-gray-600'
+            color: 'bg-gray-50 text-gray-700 border-gray-200 dark:bg-gray-800/20 dark:text-gray-300 dark:border-gray-700',
+            accentColor: 'text-gray-600 dark:text-gray-400'
         },
         {
             name: 'Aerodynamics',
@@ -39,8 +39,8 @@ export default function OurCars() {
                 'CFD-optimized body panels',
                 'Adjustable aerodynamic elements'
             ],
-            color: 'bg-blue-50 text-blue-700 border-blue-200',
-            accentColor: 'text-blue-600'
+            color: 'bg-blue-50 text-blue-700 border-blue-200 dark:bg-blue-900/20 dark:text-blue-300 dark:border-blue-800',
+            accentColor: 'text-blue-600 dark:text-blue-400'
         },
         {
             name: 'Suspension',
@@ -52,8 +52,8 @@ export default function OurCars() {
                 'Custom upright and hub assemblies',
                 'Kinematic optimization for handling'
             ],
-            color: 'bg-green-50 text-green-700 border-green-200',
-            accentColor: 'text-green-600'
+            color: 'bg-green-50 text-green-700 border-green-200 dark:bg-green-900/20 dark:text-green-300 dark:border-green-800',
+            accentColor: 'text-green-600 dark:text-green-400'
         },
         {
             name: 'Powertrain',
@@ -65,8 +65,8 @@ export default function OurCars() {
                 'Optimized gear ratios and differential',
                 'Advanced fuel injection and ignition'
             ],
-            color: 'bg-orange-50 text-orange-700 border-orange-200',
-            accentColor: 'text-orange-600'
+            color: 'bg-orange-50 text-orange-700 border-orange-200 dark:bg-orange-900/20 dark:text-orange-300 dark:border-orange-800',
+            accentColor: 'text-orange-600 dark:text-orange-400'
         },
         {
             name: 'Electronics',
@@ -78,8 +78,8 @@ export default function OurCars() {
                 'Real-time telemetry and data logging',
                 'Driver display and control interfaces'
             ],
-            color: 'bg-yellow-50 text-yellow-700 border-yellow-200',
-            accentColor: 'text-yellow-600'
+            color: 'bg-yellow-50 text-yellow-700 border-yellow-200 dark:bg-yellow-900/20 dark:text-yellow-300 dark:border-yellow-800',
+            accentColor: 'text-yellow-600 dark:text-yellow-400'
         }
     ];
 
@@ -117,16 +117,16 @@ export default function OurCars() {
     ];
 
     return (
-        <section className="py-24 bg-gradient-to-b from-white to-gray-100 text-gray-900">
+        <section className="py-24 bg-gradient-to-b from-white to-gray-100 dark:from-gray-900 dark:to-gray-800 text-gray-900 dark:text-white">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 
                 {/* Header */}
                 <div className="text-center mb-20">
-                    <h2 className="text-4xl md:text-5xl font-light text-gray-900 mb-4">
+                    <h2 className="text-4xl md:text-5xl font-light text-gray-900 dark:text-white mb-4">
                         Our <span className="font-semibold text-red-600">Cars</span>
                     </h2>
                     <div className="w-16 h-px bg-red-600 mx-auto mb-6"></div>
-                    <p className="text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed mb-8">
+                    <p className="text-lg text-gray-600 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed mb-8">
                         At <span className="font-medium text-red-600">FSAE TEC Racing</span>, our car is the product of countless hours of engineering, testing, and teamwork. Each subsystem is developed by specialists who push innovation to the limit.
                     </p>
                     
@@ -145,14 +145,14 @@ export default function OurCars() {
                 {/* Subsystems */}
                 <div className="mb-20">
                     <div className="text-center mb-16">
-                        <h3 className="text-3xl md:text-4xl font-light text-gray-900 mb-4">Engineering Excellence</h3>
+                        <h3 className="text-3xl md:text-4xl font-light text-gray-900 dark:text-white mb-4">Engineering Excellence</h3>
                         <div className="w-12 h-px bg-gray-400 mx-auto mb-4"></div>
-                        <p className="text-gray-600 max-w-2xl mx-auto">Every component is meticulously designed and optimized for peak performance</p>
+                        <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">Every component is meticulously designed and optimized for peak performance</p>
                     </div>
 
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {subsystems.map((subsystem) => (
-                            <Card key={subsystem.name} className="h-full border-0 shadow-sm hover:shadow-lg transition-all duration-300 bg-black backdrop-blur-sm">
+                            <Card key={subsystem.name} className="h-full border-0 shadow-sm hover:shadow-lg transition-all duration-300 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm">
                                 <CardHeader className="pb-4">
                                     <div className="flex items-center justify-between mb-3">
                                         <span className="text-5xl text-red-500">{subsystem.icon}</span>
@@ -160,19 +160,19 @@ export default function OurCars() {
                                             Subsystem
                                         </Badge>
                                     </div>
-                                    <CardTitle className="text-xl font-medium text-white">
+                                    <CardTitle className="text-xl font-medium text-gray-900 dark:text-white">
                                         {subsystem.name}
                                     </CardTitle>
                                 </CardHeader>
                                 <CardContent className="pt-0">
-                                    <CardDescription className="text-white/80 leading-relaxed mb-4">
+                                    <CardDescription className="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
                                         {subsystem.description}
                                     </CardDescription>
                                     <div className="space-y-2">
                                         {subsystem.details.map((detail, index) => (
                                             <div key={index} className="flex items-start">
                                                 <div className={`w-1.5 h-1.5 rounded-full mt-2 mr-3 ${subsystem.accentColor.replace('text-', 'bg-')}`}></div>
-                                                <span className="text-sm text-white/80 leading-relaxed">{detail}</span>
+                                                <span className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">{detail}</span>
                                             </div>
                                         ))}
                                     </div>
@@ -185,25 +185,25 @@ export default function OurCars() {
                 {/* Development Process */}
                 <div className="mb-20">
                     <div className="text-center mb-16">
-                        <h3 className="text-3xl md:text-4xl font-light text-gray-900 mb-4">Development Process</h3>
+                        <h3 className="text-3xl md:text-4xl font-light text-gray-900 dark:text-white mb-4">Development Process</h3>
                         <div className="w-12 h-px bg-gray-400 mx-auto mb-4"></div>
-                        <p className="text-gray-600 max-w-2xl mx-auto">We take pride in designing, simulating, manufacturing, assembling, and testing every component ourselves</p>
+                        <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">We take pride in designing, simulating, manufacturing, assembling, and testing every component ourselves</p>
                     </div>
 
                     <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-6">
                         {developmentPhases.map((phase, index) => (
                             <div key={phase.phase} className="relative">
-                                <Card className="text-center border-0 shadow-sm hover:shadow-md transition-all duration-300 bg-black backdrop-blur-sm">
+                                <Card className="text-center border-0 shadow-sm hover:shadow-md transition-all duration-300 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm">
                                     <CardContent className="p-6 flex flex-col items-center">
                                         <div className="text-5xl text-red-500 mb-4">{phase.icon}</div>
-                                        <h4 className="text-lg font-medium text-white mb-2 text-center">{phase.phase}</h4>
-                                        <p className="text-sm text-gray-400 mb-4 text-center">{phase.description}</p>
+                                        <h4 className="text-lg font-medium text-gray-900 dark:text-white mb-2 text-center">{phase.phase}</h4>
+                                        <p className="text-sm text-gray-600 dark:text-gray-400 mb-4 text-center">{phase.description}</p>
                                     </CardContent>
                                 </Card>
                                 {index < developmentPhases.length - 1 && (
                                     <div className="hidden lg:block absolute top-1/2 -right-3 transform -translate-y-1/2">
-                                        <div className="w-6 h-0.5 bg-gray-700"></div>
-                                        <div className="absolute -right-1.5 -top-1 w-3 h-3 bg-gray-900 transform rotate-45"></div>
+                                        <div className="w-6 h-0.5 bg-gray-300 dark:bg-gray-600"></div>
+                                        <div className="absolute -right-1.5 -top-1 w-3 h-3 bg-gray-400 dark:bg-gray-500 transform rotate-45"></div>
                                     </div>
                                 )}
                             </div>
@@ -213,15 +213,15 @@ export default function OurCars() {
 
                 {/* Innovation Statement */}
                 <div className="text-center">
-                    <Card className="max-w-4xl mx-auto border-0 shadow-lg bg-gradient-to-r from-red-50 to-red-100/50 backdrop-blur-sm">
+                    <Card className="max-w-4xl mx-auto border-0 shadow-lg bg-gradient-to-r from-red-50 to-red-100/50 dark:from-red-900/20 dark:to-red-800/20 backdrop-blur-sm">
                         <CardContent className="p-8 md:p-12">
                             <div className="flex justify-center">
-                                <div className="text-6xl mb-6 text-center"><MdPsychology /></div>
+                                <div className="text-6xl mb-6 text-center text-red-500"><MdPsychology /></div>
                             </div>
-                            <h3 className="text-2xl md:text-3xl font-light text-gray-800 mb-4">
+                            <h3 className="text-2xl md:text-3xl font-light text-gray-800 dark:text-gray-200 mb-4">
                                 Innovation in <span className="font-semibold text-red-600">Motion</span>
                             </h3>
-                            <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
+                            <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300 leading-relaxed">
                                 Every bolt, every line of code, every weld represents our commitment to pushing the boundaries of what&apos;s possible in Formula SAE racing.
                             </p>
                         </CardContent>
