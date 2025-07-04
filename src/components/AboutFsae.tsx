@@ -6,7 +6,7 @@ import { MdPublic, MdSchool, MdEngineering, MdOutlineGroup } from 'react-icons/m
 export default function AboutFsae() {
     return (
         <>
-            <section className="bg-gray-50 dark:bg-gray-900 border-b border-gray-100 dark:border-gray-800">
+            <section className="bg-gradient-to-b from-white to-gray-100 dark:from-gray-900 dark:to-gray-800 text-gray-900 dark:text-white">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
                     {/* Header */}
                     <div className="text-center mb-16">
