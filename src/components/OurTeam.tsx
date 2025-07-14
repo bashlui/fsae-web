@@ -290,7 +290,7 @@ export default function OurTeam() {
   const subTeams: SubTeam[] = [
     {
       name: 'Powertrain',
-      image: '/team_fsae.JPG',
+      image: '/',
       route: '/our-team/powertrain',
       icon: MdEngineering,
       description: 'The Powertrain team is responsible for the heart of our race car - the engine and drivetrain systems. We focus on maximizing power output while ensuring reliability and efficiency throughout the competition.',
@@ -307,7 +307,7 @@ export default function OurTeam() {
     },
     {
       name: 'Electrical',
-      image: '/team_fsae.JPG',
+      image: '/',
       route: '/our-team/electrical',
       icon: MdElectricBolt,
       description: 'Our Electrical team designs and implements all electrical systems in the vehicle, from basic wiring harnesses to advanced control systems that monitor and optimize vehicle performance.',
@@ -324,7 +324,7 @@ export default function OurTeam() {
     },
     {
       name: 'Suspension',
-      image: '/team_fsae.JPG',
+      image: '/',
       route: '/our-team/suspension',
       icon: MdSpeed,
       description: 'The Suspension team develops the critical systems that connect our car to the road. We design suspension geometry and components that provide optimal handling, comfort, and performance.',
@@ -341,7 +341,7 @@ export default function OurTeam() {
     },
     {
       name: 'Chassis',
-      image: '/team_fsae.JPG',
+      image: '/chassis.JPG',
       route: '/our-team/chassis',
       icon: MdBuild,
       description: 'The Chassis team creates the structural foundation of our race car. We design a lightweight yet strong frame that protects the driver while providing optimal weight distribution and component mounting.',
@@ -358,7 +358,7 @@ export default function OurTeam() {
     },
     {
       name: 'Aerodynamics',
-      image: '/team_fsae.JPG',
+      image: '/',
       route: '/our-team/aerodynamics',
       icon: MdAir,
       description: 'Our Aerodynamics team harnesses the power of airflow to enhance vehicle performance. We design wings, diffusers, and body panels that generate downforce while minimizing drag.',
@@ -375,7 +375,7 @@ export default function OurTeam() {
     },
     {
       name: 'Vehicle Dynamics',
-      image: '/team_fsae.JPG',
+      image: '/',
       route: '/our-team/vehicle-dynamics',
       icon: MdScience,
       description: 'The Vehicle Dynamics team focuses on how all systems work together to create optimal vehicle behavior. We analyze and optimize the car\'s handling characteristics and overall performance.',
@@ -392,7 +392,7 @@ export default function OurTeam() {
     },
     {
       name: 'Embedded',
-      image: '/team_fsae.JPG',
+      image: '/',
       route: '/our-team/embedded',
       icon: MdComputer,
       description: 'The Embedded Systems team develops the intelligent software and hardware that brings our car to life. We create the digital brain that monitors, controls, and optimizes vehicle systems.',
@@ -409,7 +409,7 @@ export default function OurTeam() {
     },
     {
       name: 'Admin / Finance',
-      image: '/team_fsae.JPG',
+      image: '/',
       route: '/our-team/admin',
       icon: MdAccountBalance,
       description: 'Our Admin and Finance team ensures the smooth operation of our organization. We manage budgets, coordinate logistics, and maintain relationships with sponsors and university administration.',
@@ -426,7 +426,7 @@ export default function OurTeam() {
     },
     {
       name: 'Marketing',
-      image: '/team_fsae.JPG',
+      image: '/',
       route: '/our-team/marketing',
       icon: MdCampaign,
       description: 'The Marketing team builds our brand and connects with the community. We create engaging content, manage social media presence, and develop materials that showcase our team\'s achievements.',
