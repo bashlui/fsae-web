@@ -1,6 +1,5 @@
 'use client';
 
-import Image from 'next/image';
 import { Separator } from '@/components/ui/separator';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -152,8 +151,8 @@ export default function Home() {
             <div className="w-16 h-px bg-red-600 mx-auto mb-6"></div>
             <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
               We are <span className="font-medium text-red-600">FSAE TEC RACING</span>, a passionate team of engineers and innovators building the future of motorsport.
+              Our mission is to design, build, and race high-performance vehicles while fostering a culture of collaboration, learning, and excellence.
             </p>
-            <Image src="/team_fsae.JPG" alt="FSAE Team" width={600} height={400} className="mx-auto mt-8 rounded-lg shadow-lg" />
           </div>
         </div>
       </section>
