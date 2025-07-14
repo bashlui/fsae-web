@@ -14,8 +14,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "FSAE TEC",
+  title: "Fsae Tec",
   description: "Formula Student Team of Tecnológico de Monterrey",
+  icons: {
+    icon: '/favicon.ico',
+  },
 };
 
 export default function RootLayout({
