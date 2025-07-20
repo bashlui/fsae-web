@@ -3,8 +3,10 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function Footer() {
+  const { t } = useLanguage();
   const socialLinks = [
     { 
       href: 'https://www.instagram.com/fsaetec', 
@@ -45,7 +47,7 @@ export default function Footer() {
 
           {/* Contact Section */}
           <div className="space-y-3">
-            <h4 className="text-sm font-medium text-gray-900 dark:text-white">Contact</h4>
+            <h4 className="text-sm font-medium text-gray-900 dark:text-white">{t('footer.contact')}</h4>
             <div className="space-y-2">
               <Button 
                 variant="link" 
@@ -61,7 +63,7 @@ export default function Footer() {
 
           {/* Social Links */}
           <div className="space-y-3">
-            <h4 className="text-sm font-medium text-gray-900 dark:text-white">Follow Us</h4>
+            <h4 className="text-sm font-medium text-gray-900 dark:text-white">{t('footer.follow')}</h4>
             <div className="flex space-x-1">
               {socialLinks.map((social) => (
                 <Button 
@@ -91,12 +93,10 @@ export default function Footer() {
         </div>
 
         {/* Bottom Section */}
-        <div className="flex flex-col md:flex-row justify-between items-center space-y-2 md:space-y-0">
+          <div className="flex flex-col md:flex-row justify-between items-center space-y-2 md:space-y-0">
             <p className="text-xs text-gray-500 dark:text-gray-400 font-light">
-            &copy; {new Date().getFullYear()} FSAE TEC RACING. All rights reserved.
-            </p>
-          
-          <div className="flex items-center space-x-2">
+              {t('footer.copyright')}
+            </p>          <div className="flex items-center space-x-2">
             <div className="w-8 h-px bg-red-500"></div>
             <span className="text-xs text-red-600 font-light">Racing Forward</span>
             <div className="w-8 h-px bg-red-500"></div>

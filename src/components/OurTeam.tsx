@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import { useState } from 'react';
+import { useLanguage } from '@/context/LanguageContext';
 import { 
   MdEngineering, 
   MdElectricBolt, 
@@ -254,6 +255,7 @@ function TeamModal({ team, isOpen, onClose }: TeamModalProps) {
 }
 
 export default function OurTeam() {
+  const { t } = useLanguage();
   const [selectedTeam, setSelectedTeam] = useState<SubTeam | null>(null);
   const [selectedMainTeam, setSelectedMainTeam] = useState<MainTeam | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -486,12 +488,11 @@ export default function OurTeam() {
           <div className="text-center mb-16">
             <MdGroup className="text-red-600 text-6xl mx-auto mb-4" />
             <h2 className="text-4xl md:text-5xl font-light text-gray-900 dark:text-white mb-4">
-              Our <span className="font-semibold text-red-600">Team</span>
+              {t('team.title')}
             </h2>
             <div className="w-16 h-px bg-red-600 mx-auto mb-6"></div>
             <p className="text-lg text-gray-600 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed">
-              Meet the passionate engineers and innovators who make up FSAE TEC Racing. 
-              Our multidisciplinary team brings together expertise from across engineering disciplines.
+              {t('team.subtitle')}
             </p>
           </div>
         
@@ -561,13 +562,11 @@ export default function OurTeam() {
         {/* Additional Info Section */}
         <div className="text-center">
           <h3 className="text-2xl md:text-3xl font-light text-gray-900 dark:text-gray-300 mb-6">
-            Our <span className="text-red-600 font-semibold">Specialized Teams</span>
+            {t('team.subsystems.title')}
           </h3>
           <div className="w-16 h-px bg-red-600 mx-auto mb-8"></div>
           <p className="text-lg text-gray-600 dark:text-gray-400 max-w-4xl mx-auto leading-relaxed">
-            Each sub-team brings unique expertise and passion to our Formula SAE project. 
-            From designing cutting-edge powertrains to developing advanced aerodynamics, 
-            our diverse teams work together to create a world-class racing vehicle.
+            {t('team.description')}
           </p>
         </div>
 

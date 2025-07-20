@@ -2,7 +2,7 @@
 
 import { Separator } from '@/components/ui/separator';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
+import { useLanguage } from '@/context/LanguageContext';
 import { 
   MdAir, 
   MdDirectionsCar, 
@@ -17,33 +17,35 @@ import {
 } from "react-icons/md";
 
 export default function Home() {
+  const { t } = useLanguage();
+
   const subsystems = [
     { 
-      name: 'Aerodynamics', 
+      name: t('team.subsystems.aerodynamics'), 
       description: 'Designing wings and bodywork to cut through the air with precision', 
       icon: <MdAir />,
       color: 'bg-blue-50 text-blue-700 border-blue-200 dark:bg-blue-900/20 dark:text-blue-300 dark:border-blue-800'
     },
     { 
-      name: 'Chassis', 
+      name: t('team.subsystems.chassis'), 
       description: 'Crafting a lightweight and rigid structure', 
       icon: <MdDirectionsCar />,
       color: 'bg-gray-50 text-gray-700 border-gray-200 dark:bg-gray-800/20 dark:text-gray-300 dark:border-gray-700'
     },
     { 
-      name: 'Powertrain', 
+      name: t('team.subsystems.powertrain'), 
       description: 'Developing high-performance propulsion systems', 
       icon: <MdSpeed />,
       color: 'bg-orange-50 text-orange-700 border-orange-200 dark:bg-orange-900/20 dark:text-orange-300 dark:border-orange-800'
     },
     { 
-      name: 'Electric', 
+      name: t('team.subsystems.electronics'), 
       description: 'Managing the energy that drives our machine', 
       icon: <MdElectricBolt />,
       color: 'bg-yellow-50 text-yellow-700 border-yellow-200 dark:bg-yellow-900/20 dark:text-yellow-300 dark:border-yellow-800'
     },
     { 
-      name: 'Suspension', 
+      name: t('team.subsystems.suspension'), 
       description: 'Optimizing grip, balance, and handling', 
       icon: <MdSettings />,
       color: 'bg-green-50 text-green-700 border-green-200 dark:bg-green-900/20 dark:text-green-300 dark:border-green-800'
@@ -83,19 +85,6 @@ export default function Home() {
     },
   ];
 
-  const getPriorityVariant = (priority: string) => {
-    switch (priority) {
-      case 'Critical':
-        return 'destructive';
-      case 'High':
-        return 'default';
-      case 'Medium':
-        return 'secondary';
-      default:
-        return 'outline';
-    }
-  };
-
   return (
     <>
       {/* Hero Section */}
@@ -118,7 +107,7 @@ export default function Home() {
           {/* Subtitle */}
           <div className="text-center max-w-4xl mx-auto">
             <p className="text-xl md:text-2xl font-light text-gray-300 leading-relaxed">
-              Engineering Excellence. Racing Innovation. Future Leaders.
+              {t('home.hero.subtitle')}
             </p>
           </div>
 
@@ -132,9 +121,9 @@ export default function Home() {
       <section className="bg-white dark:bg-gray-900 py-16">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300 font-light leading-relaxed">
-            Welcome to the official site of FSAE TEC Racing. 
+            {t('home.welcome.description')}
             <br className="hidden md:block" />
-            <span className="text-red-600 font-medium">We build, race, and innovate.</span>
+            <span className="text-red-600 font-medium">{t('home.hero.description')}</span>
           </p>
         </div>
       </section>
@@ -146,12 +135,11 @@ export default function Home() {
           {/* Header */}
           <div className="text-center mb-20">
             <h2 className="text-4xl md:text-5xl font-light text-gray-900 dark:text-white mb-4">
-              About <span className="font-semibold text-red-600">Us</span>
+              {t('home.about.title')}
             </h2>
             <div className="w-16 h-px bg-red-600 mx-auto mb-6"></div>
             <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
-              We are <span className="font-medium text-red-600">FSAE TEC RACING</span>, a passionate team of engineers and innovators building the future of motorsport.
-              Our mission is to design, build, and race high-performance vehicles while fostering a culture of collaboration, learning, and excellence.
+              {t('home.about.description')}
             </p>
           </div>
         </div>
@@ -163,20 +151,20 @@ export default function Home() {
           {/* Section Header */}
           <div className="text-center mb-20">
             <h2 className="text-4xl md:text-5xl font-light text-gray-900 dark:text-white mb-4">
-              Team <span className="font-semibold text-red-600">Roles</span>
+              {t('team.roles.title')}
             </h2>
             <div className="w-16 h-px bg-red-600 mx-auto mb-6"></div>
             <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
-              Our diverse team brings together technical excellence and strategic leadership to build championship-winning vehicles.
+              {t('team.description')}
             </p>
           </div>
 
           {/* Technical Subsystems */}
           <div className="mb-20">
             <div className="text-center mb-16">
-              <h3 className="text-3xl md:text-4xl font-light text-gray-900 dark:text-white mb-4">Technical Subsystems</h3>
+              <h3 className="text-3xl md:text-4xl font-light text-gray-900 dark:text-white mb-4">{t('home.technical.title')}</h3>
               <div className="w-12 h-px bg-gray-400 mx-auto mb-4"></div>
-              <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">Our engineering expertise spans multiple disciplines</p>
+              <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">{t('home.technical.description')}</p>
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -184,11 +172,8 @@ export default function Home() {
                 <div key={subsystem.name}>
                   <Card className="h-full border-0 shadow-sm hover:shadow-lg transition-all duration-300 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm">
                     <CardHeader className="pb-4">
-                      <div className="flex items-center justify-between mb-3">
-                        <span className="text-3xl text-red-500">{subsystem.icon}</span>
-                        <Badge variant="outline" className={subsystem.color}>
-                          Technical
-                        </Badge>
+                      <div className="flex items-center mb-3">
+                        <span className="text-3xl text-red-500 mr-3">{subsystem.icon}</span>
                       </div>
                       <CardTitle className="text-xl font-medium text-gray-900 dark:text-white">
                         {subsystem.name}
@@ -208,9 +193,9 @@ export default function Home() {
           {/* Administration Team */}
           <div className="mb-20">
             <div className="text-center mb-16">
-              <h3 className="text-3xl md:text-4xl font-light text-gray-900 dark:text-white mb-4">Administration Team</h3>
+              <h3 className="text-3xl md:text-4xl font-light text-gray-900 dark:text-white mb-4">{t('home.admin.title')}</h3>
               <div className="w-12 h-px bg-gray-400 mx-auto mb-4"></div>
-              <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">Strategic leadership driving our success</p>
+              <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">{t('home.admin.description')}</p>
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -218,11 +203,8 @@ export default function Home() {
                 <div key={team.name}>
                   <Card className="h-full border-0 shadow-sm hover:shadow-lg transition-all duration-300 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm">
                     <CardHeader className="pb-4">
-                      <div className="flex items-center justify-between mb-3">
-                        <span className="text-3xl text-red-500">{team.icon}</span>
-                        <Badge variant={getPriorityVariant(team.priority)}>
-                          {team.priority}
-                        </Badge>
+                      <div className="flex items-center mb-3">
+                        <span className="text-3xl text-red-500 mr-3">{team.icon}</span>
                       </div>
                       <CardTitle className="text-xl font-medium text-gray-900 dark:text-white">
                         {team.name}
@@ -244,9 +226,7 @@ export default function Home() {
             <Card className="max-w-4xl mx-auto border-0 shadow-lg bg-gradient-to-r from-red-50 to-red-100/50 dark:from-red-900/20 dark:to-red-800/20 backdrop-blur-sm">
               <CardContent className="p-8 md:p-12">
                 <p className="text-xl md:text-2xl font-light text-gray-800 dark:text-gray-200 leading-relaxed">
-                  Together, we are more than just a student team — we are a 
-                  <span className="font-medium text-red-600"> racing family </span>
-                  building engineering legends.
+                  {t('home.closing.message')}
                 </p>
               </CardContent>
             </Card>

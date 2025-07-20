@@ -2,6 +2,7 @@
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { useLanguage } from '@/context/LanguageContext';
 import { MdDirectionsCar, 
          MdElectricBolt, 
          MdWaves, 
@@ -15,9 +16,10 @@ import { MdDirectionsCar,
          MdPsychology } from "react-icons/md";
 
 export default function OurCars() {
+    const { t } = useLanguage();
     const subsystems = [
         {
-            name: 'Chassis',
+            name: t('team.subsystems.chassis'),
             description: 'Our chassis is built from lightweight materials like aluminum and carbon fiber to ensure strength and performance.',
             icon: <MdDirectionsCar />,
             details: [
@@ -30,7 +32,7 @@ export default function OurCars() {
             accentColor: 'text-gray-600 dark:text-gray-400'
         },
         {
-            name: 'Aerodynamics',
+            name: t('team.subsystems.aerodynamics'),
             description: 'We design custom wings, diffusers, and body panels to generate downforce and reduce drag.',
             icon: <MdWaves />,
             details: [
@@ -43,7 +45,7 @@ export default function OurCars() {
             accentColor: 'text-blue-600 dark:text-blue-400'
         },
         {
-            name: 'Suspension',
+            name: t('team.subsystems.suspension'),
             description: 'Tuned for performance and adjustability to suit different tracks.',
             icon: <MdTornado />,
             details: [
@@ -56,7 +58,7 @@ export default function OurCars() {
             accentColor: 'text-green-600 dark:text-green-400'
         },
         {
-            name: 'Powertrain',
+            name: t('team.subsystems.powertrain'),
             description: 'Whether combustion or electric, our drivetrain is optimized for acceleration, efficiency, and control.',
             icon: <MdBatteryFull />,
             details: [
@@ -69,7 +71,7 @@ export default function OurCars() {
             accentColor: 'text-orange-600 dark:text-orange-400'
         },
         {
-            name: 'Electronics',
+            name: t('team.subsystems.electronics'),
             description: 'We integrate sensors and custom ECUs for precision data logging and control systems.',
             icon: <MdElectricBolt />,
             details: [
@@ -123,11 +125,11 @@ export default function OurCars() {
                 {/* Header */}
                 <div className="text-center mb-20">
                     <h2 className="text-4xl md:text-5xl font-light text-gray-900 dark:text-white mb-4">
-                        Our <span className="font-semibold text-red-600">Cars</span>
+                        {t('cars.title')}
                     </h2>
                     <div className="w-16 h-px bg-red-600 mx-auto mb-6"></div>
                     <p className="text-lg text-gray-600 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed mb-8">
-                        At <span className="font-medium text-red-600">FSAE TEC Racing</span>, our car is the product of countless hours of engineering, testing, and teamwork. Each subsystem is developed by specialists who push innovation to the limit.
+                        {t('cars.description')}
                     </p>
                     
                     {/* Hero Car Image Placeholder */}

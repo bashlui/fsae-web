@@ -4,19 +4,21 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { useTheme } from '@/context/ThemeContext';
+import { useLanguage } from '@/context/LanguageContext';
 import { MdLightMode, MdDarkMode } from 'react-icons/md';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const { theme, toggleTheme } = useTheme();
+  const { language, toggleLanguage, t } = useLanguage();
 
   const navItems = [
-    { href: '/', label: 'Home' },
-    { href: '/our-cars', label: 'Our Cars' },
-    { href: '/about-fsae', label: 'About FSAE' },
-    { href: '/our-team', label: 'Our Team' },
-    { href: '/sponsors', label: 'Sponsors' },
-    { href: '/contact', label: 'Contact' },
+    { href: '/', label: t('nav.home') },
+    { href: '/our-cars', label: t('nav.ourCars') },
+    { href: '/about-fsae', label: t('nav.aboutFsae') },
+    { href: '/our-team', label: t('nav.ourTeam') },
+    { href: '/sponsors', label: t('nav.sponsors') },
+    { href: '/contact', label: t('nav.contact') },
   ];
 
   return (
@@ -47,19 +49,41 @@ export default function Navbar() {
               </div>
             ))}
             
+            {/* Language Toggle Button */}
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={toggleLanguage}
+              className="text-white/90 hover:text-red-600 hover:bg-white/10 transition-colors duration-200 ml-2"
+            >
+              <span className="font-medium">
+                {language === 'en' ? 'ES' : 'EN'}
+              </span>
+            </Button>
+            
             {/* Theme Toggle Button */}
             <Button
               variant="ghost"
               size="sm"
               onClick={toggleTheme}
-              className="text-white/90 hover:text-red-600 hover:bg-white/10 transition-colors duration-200 ml-4"
+              className="text-white/90 hover:text-red-600 hover:bg-white/10 transition-colors duration-200 ml-2"
             >
               {theme === 'light' ? <MdDarkMode size={20} /> : <MdLightMode size={20} />}
             </Button>
           </div>
 
-          {/* Mobile menu button and theme toggle */}
+          {/* Mobile menu button and controls */}
           <div className="md:hidden flex items-center space-x-2">
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={toggleLanguage}
+              className="text-white/90 hover:text-red-600 hover:bg-white/10"
+            >
+              <span className="text-sm font-medium">
+                {language === 'en' ? 'ES' : 'EN'}
+              </span>
+            </Button>
             <Button
               variant="ghost"
               size="sm"
