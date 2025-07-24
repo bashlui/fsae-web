@@ -28,7 +28,7 @@ export default function AboutFsae() {
                         <MdEngineering className="text-red-600 text-6xl mx-auto mb-4" />
                         <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">{t('fsae.mission.title')}</h3>
                         <p className="text-lg text-gray-600 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed">
-                            FSAE challenges students to innovate and build formula-style cars, fostering creativity and practical engineering skills essential for success in the field.
+                            {t('fsae.mission.extended')}
                         </p>
                     </div>
 
@@ -37,25 +37,25 @@ export default function AboutFsae() {
                         <MdOutlineGroup className="text-red-600 text-6xl mx-auto mb-4" />
                         <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">{t('fsae.competition.title')}</h3>
                         <p className="text-lg text-gray-600 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed">
-                            Events include static (design, cost, business) and dynamic (acceleration, endurance) challenges. Teams manage powertrain, aerodynamics, and business functions.
+                            {t('fsae.competition.description')}
                         </p>
                     </div>
 
                     {/* Educational Impact */}
                     <div className="text-center mb-16">
                         <MdSchool className="text-red-600 text-6xl mx-auto mb-4" />
-                        <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Educational Impact</h3>
+                        <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">{t('fsae.education.title')}</h3>
                         <p className="text-lg text-gray-600 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed">
-                            Students apply classroom concepts to real-world challenges, develop soft skills, and gain exposure to industry tools and experts, preparing them for careers in top companies.
+                            {t('fsae.education.description')}
                         </p>
                     </div>
 
                     {/* Global Reach & Career Impact */}
                     <div className="text-center mb-16">
                         <MdPublic className="text-red-600 text-6xl mx-auto mb-4" />
-                        <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Global Reach & Career Impact</h3>
+                        <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">{t('fsae.global.title')}</h3>
                         <p className="text-lg text-gray-600 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed">
-                            Held worldwide in locations like the USA, Germany, and India, FSAE fosters critical skills and connects students with top companies like Tesla, Red Bull Racing, and Bosch.
+                            {t('fsae.global.description')}
                         </p>
                     </div>
                 </div>

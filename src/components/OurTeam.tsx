@@ -44,15 +44,17 @@ interface TeamModalProps {
   team: SubTeam | null;
   isOpen: boolean;
   onClose: () => void;
+  t: (key: string) => string;
 }
 
 interface MainTeamModalProps {
   team: MainTeam | null;
   isOpen: boolean;
   onClose: () => void;
+  t: (key: string) => string;
 }
 
-function MainTeamModal({ team, isOpen, onClose }: MainTeamModalProps) {
+function MainTeamModal({ team, isOpen, onClose, t }: MainTeamModalProps) {
   if (!isOpen || !team) return null;
 
   const IconComponent = team.icon;
@@ -98,7 +100,7 @@ function MainTeamModal({ team, isOpen, onClose }: MainTeamModalProps) {
 
           {/* Team Description */}
           <div className="mb-8">
-            <h3 className="text-xl font-semibold text-red-600 mb-4">About Our Team</h3>
+            <h3 className="text-xl font-semibold text-red-600 mb-4">{t('team.modal.aboutTeam')}</h3>
             <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
               {team.description}
             </p>
@@ -106,7 +108,7 @@ function MainTeamModal({ team, isOpen, onClose }: MainTeamModalProps) {
 
           {/* Mission */}
           <div className="mb-8">
-            <h3 className="text-xl font-semibold text-red-600 mb-4">Our Mission</h3>
+            <h3 className="text-xl font-semibold text-red-600 mb-4">{t('team.modal.mission')}</h3>
             <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
               {team.mission}
             </p>
@@ -114,7 +116,7 @@ function MainTeamModal({ team, isOpen, onClose }: MainTeamModalProps) {
 
           {/* Values */}
           <div className="mb-8">
-            <h3 className="text-xl font-semibold text-red-600 mb-4">Our Values</h3>
+            <h3 className="text-xl font-semibold text-red-600 mb-4">{t('team.modal.values')}</h3>
             <ul className="space-y-2">
               {team.values.map((value, index) => (
                 <li key={index} className="flex items-start text-gray-700 dark:text-gray-300">
@@ -127,7 +129,7 @@ function MainTeamModal({ team, isOpen, onClose }: MainTeamModalProps) {
 
           {/* Achievements */}
           <div className="mb-8">
-            <h3 className="text-xl font-semibold text-red-600 mb-4">Recent Achievements</h3>
+            <h3 className="text-xl font-semibold text-red-600 mb-4">{t('team.modal.achievements')}</h3>
             <ul className="space-y-2">
               {team.achievements.map((achievement, index) => (
                 <li key={index} className="flex items-start text-gray-700 dark:text-gray-300">
@@ -142,13 +144,13 @@ function MainTeamModal({ team, isOpen, onClose }: MainTeamModalProps) {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="text-center">
               <div className="bg-red-600/20 border border-red-500/30 rounded-lg p-4">
-                <p className="text-red-600 font-semibold">Total Members</p>
-                <p className="text-gray-900 dark:text-white text-2xl font-bold">{team.totalMembers}+ Students</p>
+                <p className="text-red-600 font-semibold">{t('team.modal.totalMembers')}</p>
+                <p className="text-gray-900 dark:text-white text-2xl font-bold">{team.totalMembers}+ {t('team.modal.students')}</p>
               </div>
             </div>
             <div className="text-center">
               <div className="bg-red-600/20 border border-red-500/30 rounded-lg p-4">
-                <p className="text-red-600 font-semibold">Founded</p>
+                <p className="text-red-600 font-semibold">{t('team.modal.founded')}</p>
                 <p className="text-gray-900 dark:text-white text-2xl font-bold">{team.founded}</p>
               </div>
             </div>
@@ -159,7 +161,7 @@ function MainTeamModal({ team, isOpen, onClose }: MainTeamModalProps) {
   );
 }
 
-function TeamModal({ team, isOpen, onClose }: TeamModalProps) {
+function TeamModal({ team, isOpen, onClose, t }: TeamModalProps) {
   if (!isOpen || !team) return null;
 
   const IconComponent = team.icon;
@@ -205,7 +207,7 @@ function TeamModal({ team, isOpen, onClose }: TeamModalProps) {
 
           {/* Team Description */}
           <div className="mb-8">
-            <h3 className="text-xl font-semibold text-red-600 mb-4">About {team.name}</h3>
+            <h3 className="text-xl font-semibold text-red-600 mb-4">{t('team.modal.about')} {team.name}</h3>
             <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
               {team.description}
             </p>
@@ -213,7 +215,7 @@ function TeamModal({ team, isOpen, onClose }: TeamModalProps) {
 
           {/* Responsibilities */}
           <div className="mb-8">
-            <h3 className="text-xl font-semibold text-red-600 mb-4">Key Responsibilities</h3>
+            <h3 className="text-xl font-semibold text-red-600 mb-4">{t('team.modal.responsibilities')}</h3>
             <ul className="space-y-2">
               {team.responsibilities.map((responsibility, index) => (
                 <li key={index} className="flex items-start text-gray-700 dark:text-gray-300">
@@ -226,7 +228,7 @@ function TeamModal({ team, isOpen, onClose }: TeamModalProps) {
 
           {/* Technologies */}
           <div className="mb-8">
-            <h3 className="text-xl font-semibold text-red-600 mb-4">Technologies & Tools</h3>
+            <h3 className="text-xl font-semibold text-red-600 mb-4">{t('team.modal.technologies')}</h3>
             <div className="flex flex-wrap gap-2">
               {team.technologies.map((tech, index) => (
                 <span
@@ -243,8 +245,8 @@ function TeamModal({ team, isOpen, onClose }: TeamModalProps) {
           {team.members && (
             <div className="text-center">
               <div className="bg-red-600/20 border border-red-500/30 rounded-lg p-4">
-                <p className="text-red-600 font-semibold">Team Size</p>
-                <p className="text-gray-900 dark:text-white text-2xl font-bold">{team.members} Members</p>
+                <p className="text-red-600 font-semibold">{t('team.modal.teamSize')}</p>
+                <p className="text-gray-900 dark:text-white text-2xl font-bold">{team.members} {t('team.modal.members')}</p>
               </div>
             </div>
           )}
@@ -262,28 +264,28 @@ export default function OurTeam() {
   const [isMainTeamModalOpen, setIsMainTeamModalOpen] = useState(false);
 
   const mainTeamData: MainTeam = {
-    name: 'FSAE TEC RACING TEAM',
+    name: t('team.main.name'),
     image: '/team_fsae.JPG',
     icon: MdGroup,
-    description: 'FSAE TEC Racing is a multidisciplinary student organization at Tecnológico de Monterrey dedicated to designing, building, and racing formula-style vehicles. Our team brings together passionate students from engineering, business, and other disciplines to compete in Formula SAE competitions worldwide.',
-    mission: 'To provide students with hands-on engineering experience while fostering innovation, teamwork, and excellence in automotive design. We aim to bridge the gap between academic theory and real-world application, preparing our members for successful careers in the automotive and motorsports industries.',
+    description: t('team.main.description'),
+    mission: t('team.main.mission'),
     values: [
-      'Innovation and continuous improvement in all aspects of vehicle design',
-      'Collaboration and teamwork across multiple engineering disciplines',
-      'Excellence in execution and attention to detail',
-      'Safety as our top priority in all activities',
-      'Sustainability and responsible engineering practices',
-      'Knowledge sharing and mentorship within the team',
-      'Representing Tecnológico de Monterrey with pride and professionalism'
+      t('team.main.values.0'),
+      t('team.main.values.1'),
+      t('team.main.values.2'),
+      t('team.main.values.3'),
+      t('team.main.values.4'),
+      t('team.main.values.5'),
+      t('team.main.values.6')
     ],
     achievements: [
-      '2023 Formula SAE Michigan - Top 15 Overall Finish',
-      '2023 Best Presentation Award - Business Event',
-      '2022 Innovation Award - Aerodynamics Package',
-      '2022 Formula SAE Lincoln - Top 20 Dynamic Events',
-      '2021 Virtual Competition - 3rd Place Cost Event',
-      'Multiple Dean\'s List academic achievements by team members',
-      'Partnership with leading automotive industry sponsors'
+      t('team.main.achievements.0'),
+      t('team.main.achievements.1'),
+      t('team.main.achievements.2'),
+      t('team.main.achievements.3'),
+      t('team.main.achievements.4'),
+      t('team.main.achievements.5'),
+      t('team.main.achievements.6')
     ],
     totalMembers: 60,
     founded: '2018'
@@ -291,154 +293,154 @@ export default function OurTeam() {
 
   const subTeams: SubTeam[] = [
     {
-      name: 'Powertrain',
+      name: t('team.subTeams.powertrain.name'),
       image: '/',
       route: '/our-team/powertrain',
       icon: MdEngineering,
-      description: 'The Powertrain team is responsible for the heart of our race car - the engine and drivetrain systems. We focus on maximizing power output while ensuring reliability and efficiency throughout the competition.',
+      description: t('team.subTeams.powertrain.description'),
       responsibilities: [
-        'Engine selection, tuning, and optimization',
-        'Intake and exhaust system design',
-        'Fuel system development',
-        'Drivetrain component selection and integration',
-        'Performance testing and data analysis',
-        'Engine management system calibration'
+        t('team.subTeams.powertrain.responsibilities.0'),
+        t('team.subTeams.powertrain.responsibilities.1'),
+        t('team.subTeams.powertrain.responsibilities.2'),
+        t('team.subTeams.powertrain.responsibilities.3'),
+        t('team.subTeams.powertrain.responsibilities.4'),
+        t('team.subTeams.powertrain.responsibilities.5')
       ],
       technologies: ['Engine Dyno', 'CAD Design', 'MATLAB/Simulink', 'Data Acquisition', 'Fuel Injection Systems'],
       members: 8
     },
     {
-      name: 'Electrical',
+      name: t('team.subTeams.electrical.name'),
       image: '/',
       route: '/our-team/electrical',
       icon: MdElectricBolt,
-      description: 'Our Electrical team designs and implements all electrical systems in the vehicle, from basic wiring harnesses to advanced control systems that monitor and optimize vehicle performance.',
+      description: t('team.subTeams.electrical.description'),
       responsibilities: [
-        'Wiring harness design and manufacturing',
-        'Battery management and charging systems',
-        'Sensor integration and data collection',
-        'Dashboard and driver interface development',
-        'Safety system implementation',
-        'Power distribution and protection'
+        t('team.subTeams.electrical.responsibilities.0'),
+        t('team.subTeams.electrical.responsibilities.1'),
+        t('team.subTeams.electrical.responsibilities.2'),
+        t('team.subTeams.electrical.responsibilities.3'),
+        t('team.subTeams.electrical.responsibilities.4'),
+        t('team.subTeams.electrical.responsibilities.5')
       ],
       technologies: ['Altium Designer', 'Arduino/Microcontrollers', 'CAN Bus', 'LabVIEW', 'Oscilloscopes', 'Multimeters'],
       members: 6
     },
     {
-      name: 'Suspension',
+      name: t('team.subTeams.suspension.name'),
       image: '/',
       route: '/our-team/suspension',
       icon: MdSpeed,
-      description: 'The Suspension team develops the critical systems that connect our car to the road. We design suspension geometry and components that provide optimal handling, comfort, and performance.',
+      description: t('team.subTeams.suspension.description'),
       responsibilities: [
-        'Suspension geometry design and optimization',
-        'Spring and damper selection',
-        'Anti-roll bar design',
-        'Kinematic and compliance analysis',
-        'Vehicle dynamics simulation',
-        'Track testing and setup optimization'
+        t('team.subTeams.suspension.responsibilities.0'),
+        t('team.subTeams.suspension.responsibilities.1'),
+        t('team.subTeams.suspension.responsibilities.2'),
+        t('team.subTeams.suspension.responsibilities.3'),
+        t('team.subTeams.suspension.responsibilities.4'),
+        t('team.subTeams.suspension.responsibilities.5')
       ],
       technologies: ['ANSYS', 'SolidWorks', 'OptimumK', 'Vehicle Dynamics Simulation', 'Data Acquisition'],
       members: 7
     },
     {
-      name: 'Chassis',
+      name: t('team.subTeams.chassis.name'),
       image: '/chassis.JPG',
       route: '/our-team/chassis',
       icon: MdBuild,
-      description: 'The Chassis team creates the structural foundation of our race car. We design a lightweight yet strong frame that protects the driver while providing optimal weight distribution and component mounting.',
+      description: t('team.subTeams.chassis.description'),
       responsibilities: [
-        'Space frame design and analysis',
-        'Structural optimization for weight and strength',
-        'Safety cell and rollcage design',
-        'Component mounting and integration',
-        'Manufacturing process development',
-        'Crash safety analysis'
+        t('team.subTeams.chassis.responsibilities.0'),
+        t('team.subTeams.chassis.responsibilities.1'),
+        t('team.subTeams.chassis.responsibilities.2'),
+        t('team.subTeams.chassis.responsibilities.3'),
+        t('team.subTeams.chassis.responsibilities.4'),
+        t('team.subTeams.chassis.responsibilities.5')
       ],
       technologies: ['SolidWorks', 'ANSYS Structural', 'Welding Equipment', 'Tube Bending', 'FEA Analysis'],
       members: 9
     },
     {
-      name: 'Aerodynamics',
+      name: t('team.subTeams.aerodynamics.name'),
       image: '/',
       route: '/our-team/aerodynamics',
       icon: MdAir,
-      description: 'Our Aerodynamics team harnesses the power of airflow to enhance vehicle performance. We design wings, diffusers, and body panels that generate downforce while minimizing drag.',
+      description: t('team.subTeams.aerodynamics.description'),
       responsibilities: [
-        'Aerodynamic package design and optimization',
-        'CFD analysis and simulation',
-        'Wind tunnel testing',
-        'Downforce and drag balance optimization',
-        'Cooling system airflow design',
-        'Aerodynamic component manufacturing'
+        t('team.subTeams.aerodynamics.responsibilities.0'),
+        t('team.subTeams.aerodynamics.responsibilities.1'),
+        t('team.subTeams.aerodynamics.responsibilities.2'),
+        t('team.subTeams.aerodynamics.responsibilities.3'),
+        t('team.subTeams.aerodynamics.responsibilities.4'),
+        t('team.subTeams.aerodynamics.responsibilities.5')
       ],
       technologies: ['ANSYS Fluent', 'SolidWorks Flow Simulation', 'Wind Tunnel', 'CFD Analysis', 'Composite Manufacturing'],
       members: 5
     },
     {
-      name: 'Vehicle Dynamics',
+      name: t('team.subTeams.vehicleDynamics.name'),
       image: '/',
       route: '/our-team/vehicle-dynamics',
       icon: MdScience,
-      description: 'The Vehicle Dynamics team focuses on how all systems work together to create optimal vehicle behavior. We analyze and optimize the car\'s handling characteristics and overall performance.',
+      description: t('team.subTeams.vehicleDynamics.description'),
       responsibilities: [
-        'Vehicle simulation and modeling',
-        'Lap time simulation and optimization',
-        'Tire analysis and selection',
-        'Setup optimization for different events',
-        'Performance data analysis',
-        'Driver feedback integration'
+        t('team.subTeams.vehicleDynamics.responsibilities.0'),
+        t('team.subTeams.vehicleDynamics.responsibilities.1'),
+        t('team.subTeams.vehicleDynamics.responsibilities.2'),
+        t('team.subTeams.vehicleDynamics.responsibilities.3'),
+        t('team.subTeams.vehicleDynamics.responsibilities.4'),
+        t('team.subTeams.vehicleDynamics.responsibilities.5')
       ],
       technologies: ['MATLAB/Simulink', 'OptimumLap', 'Tire Testing Equipment', 'Data Acquisition', 'Vehicle Simulation'],
       members: 6
     },
     {
-      name: 'Embedded',
+      name: t('team.subTeams.embedded.name'),
       image: '/',
       route: '/our-team/embedded',
       icon: MdComputer,
-      description: 'The Embedded Systems team develops the intelligent software and hardware that brings our car to life. We create the digital brain that monitors, controls, and optimizes vehicle systems.',
+      description: t('team.subTeams.embedded.description'),
       responsibilities: [
-        'ECU programming and calibration',
-        'Real-time data acquisition systems',
-        'Driver display and interface development',
-        'Sensor fusion and filtering algorithms',
-        'Telemetry and wireless communication',
-        'System integration and testing'
+        t('team.subTeams.embedded.responsibilities.0'),
+        t('team.subTeams.embedded.responsibilities.1'),
+        t('team.subTeams.embedded.responsibilities.2'),
+        t('team.subTeams.embedded.responsibilities.3'),
+        t('team.subTeams.embedded.responsibilities.4'),
+        t('team.subTeams.embedded.responsibilities.5')
       ],
       technologies: ['C/C++', 'Python', 'Real-time Systems', 'CAN Communication', 'Embedded Linux', 'Microcontrollers'],
       members: 7
     },
     {
-      name: 'Admin / Finance',
+      name: t('team.subTeams.admin.name'),
       image: '/',
       route: '/our-team/admin',
       icon: MdAccountBalance,
-      description: 'Our Admin and Finance team ensures the smooth operation of our organization. We manage budgets, coordinate logistics, and maintain relationships with sponsors and university administration.',
+      description: t('team.subTeams.admin.description'),
       responsibilities: [
-        'Budget planning and financial management',
-        'Sponsor relationship management',
-        'Event logistics and travel coordination',
-        'Team documentation and record keeping',
-        'University liaison and compliance',
-        'Resource allocation and procurement'
+        t('team.subTeams.admin.responsibilities.0'),
+        t('team.subTeams.admin.responsibilities.1'),
+        t('team.subTeams.admin.responsibilities.2'),
+        t('team.subTeams.admin.responsibilities.3'),
+        t('team.subTeams.admin.responsibilities.4'),
+        t('team.subTeams.admin.responsibilities.5')
       ],
       technologies: ['Excel/Spreadsheets', 'Project Management Tools', 'Financial Software', 'Database Management'],
       members: 4
     },
     {
-      name: 'Marketing',
+      name: t('team.subTeams.marketing.name'),
       image: '/',
       route: '/our-team/marketing',
       icon: MdCampaign,
-      description: 'The Marketing team builds our brand and connects with the community. We create engaging content, manage social media presence, and develop materials that showcase our team\'s achievements.',
+      description: t('team.subTeams.marketing.description'),
       responsibilities: [
-        'Social media management and content creation',
-        'Website development and maintenance',
-        'Promotional material design',
-        'Photography and videography',
-        'Public relations and media outreach',
-        'Sponsor presentation development'
+        t('team.subTeams.marketing.responsibilities.0'),
+        t('team.subTeams.marketing.responsibilities.1'),
+        t('team.subTeams.marketing.responsibilities.2'),
+        t('team.subTeams.marketing.responsibilities.3'),
+        t('team.subTeams.marketing.responsibilities.4'),
+        t('team.subTeams.marketing.responsibilities.5')
       ],
       technologies: ['Adobe Creative Suite', 'Social Media Platforms', 'Web Development', 'Photography Equipment', 'Video Editing'],
       members: 5
@@ -471,14 +473,16 @@ export default function OurTeam() {
       <MainTeamModal 
         team={selectedMainTeam} 
         isOpen={isMainTeamModalOpen} 
-        onClose={closeMainTeamModal} 
+        onClose={closeMainTeamModal}
+        t={t}
       />
       
       {/* Sub Team Modal */}
       <TeamModal 
         team={selectedTeam} 
         isOpen={isModalOpen} 
-        onClose={closeModal} 
+        onClose={closeModal}
+        t={t}
       />
       
       <section className={`bg-gradient-to-b from-white to-gray-100 dark:from-gray-900 dark:to-gray-800 text-gray-900 dark:text-white py-16 transition-all duration-300 ${(isModalOpen || isMainTeamModalOpen) ? 'blur-sm' : ''}`}>
@@ -513,10 +517,10 @@ export default function OurTeam() {
           </div>
           <div className="bg-red-600 p-8 text-center">
             <h2 className="text-white text-3xl md:text-4xl font-bold mb-3">
-              FSAE TEC RACING TEAM
+              {t('team.main.name')}
             </h2>
             <p className="text-white text-lg md:text-xl font-medium">
-              Click here to learn about our team structure, values, and what unites us.
+              {t('team.clickToLearn')}
             </p>
           </div>
         </div>

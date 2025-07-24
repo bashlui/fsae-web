@@ -20,65 +20,65 @@ export default function OurCars() {
     const subsystems = [
         {
             name: t('team.subsystems.chassis'),
-            description: 'Our chassis is built from lightweight materials like aluminum and carbon fiber to ensure strength and performance.',
+            description: t('cars.subsystems.chassis.description'),
             icon: <MdDirectionsCar />,
             details: [
-                'Lightweight aluminum space frame construction',
-                'Carbon fiber components for weight reduction',
-                'Optimized for torsional rigidity',
-                'FEA-validated design for safety compliance'
+                t('cars.subsystems.chassis.detail1'),
+                t('cars.subsystems.chassis.detail2'),
+                t('cars.subsystems.chassis.detail3'),
+                t('cars.subsystems.chassis.detail4')
             ],
             color: 'bg-gray-50 text-gray-700 border-gray-200 dark:bg-gray-800/20 dark:text-gray-300 dark:border-gray-700',
             accentColor: 'text-gray-600 dark:text-gray-400'
         },
         {
             name: t('team.subsystems.aerodynamics'),
-            description: 'We design custom wings, diffusers, and body panels to generate downforce and reduce drag.',
+            description: t('cars.subsystems.aerodynamics.description'),
             icon: <MdWaves />,
             details: [
-                'Custom front and rear wing assemblies',
-                'Undertray and diffuser for ground effect',
-                'CFD-optimized body panels',
-                'Adjustable aerodynamic elements'
+                t('cars.subsystems.aerodynamics.detail1'),
+                t('cars.subsystems.aerodynamics.detail2'),
+                t('cars.subsystems.aerodynamics.detail3'),
+                t('cars.subsystems.aerodynamics.detail4')
             ],
             color: 'bg-blue-50 text-blue-700 border-blue-200 dark:bg-blue-900/20 dark:text-blue-300 dark:border-blue-800',
             accentColor: 'text-blue-600 dark:text-blue-400'
         },
         {
             name: t('team.subsystems.suspension'),
-            description: 'Tuned for performance and adjustability to suit different tracks.',
+            description: t('cars.subsystems.suspension.description'),
             icon: <MdTornado />,
             details: [
-                'Double wishbone front and rear',
-                'Adjustable dampers and anti-roll bars',
-                'Custom upright and hub assemblies',
-                'Kinematic optimization for handling'
+                t('cars.subsystems.suspension.detail1'),
+                t('cars.subsystems.suspension.detail2'),
+                t('cars.subsystems.suspension.detail3'),
+                t('cars.subsystems.suspension.detail4')
             ],
             color: 'bg-green-50 text-green-700 border-green-200 dark:bg-green-900/20 dark:text-green-300 dark:border-green-800',
             accentColor: 'text-green-600 dark:text-green-400'
         },
         {
             name: t('team.subsystems.powertrain'),
-            description: 'Whether combustion or electric, our drivetrain is optimized for acceleration, efficiency, and control.',
+            description: t('cars.subsystems.powertrain.description'),
             icon: <MdBatteryFull />,
             details: [
-                'High-performance engine management',
-                'Custom intake and exhaust systems',
-                'Optimized gear ratios and differential',
-                'Advanced fuel injection and ignition'
+                t('cars.subsystems.powertrain.detail1'),
+                t('cars.subsystems.powertrain.detail2'),
+                t('cars.subsystems.powertrain.detail3'),
+                t('cars.subsystems.powertrain.detail4')
             ],
             color: 'bg-orange-50 text-orange-700 border-orange-200 dark:bg-orange-900/20 dark:text-orange-300 dark:border-orange-800',
             accentColor: 'text-orange-600 dark:text-orange-400'
         },
         {
             name: t('team.subsystems.electronics'),
-            description: 'We integrate sensors and custom ECUs for precision data logging and control systems.',
+            description: t('cars.subsystems.electronics.description'),
             icon: <MdElectricBolt />,
             details: [
-                'Custom ECU programming and calibration',
-                'Advanced sensor integration',
-                'Real-time telemetry and data logging',
-                'Driver display and control interfaces'
+                t('cars.subsystems.electronics.detail1'),
+                t('cars.subsystems.electronics.detail2'),
+                t('cars.subsystems.electronics.detail3'),
+                t('cars.subsystems.electronics.detail4')
             ],
             color: 'bg-yellow-50 text-yellow-700 border-yellow-200 dark:bg-yellow-900/20 dark:text-yellow-300 dark:border-yellow-800',
             accentColor: 'text-yellow-600 dark:text-yellow-400'
@@ -87,34 +87,34 @@ export default function OurCars() {
 
     const developmentPhases = [
         {
-            phase: 'Design',
-            description: 'CAD modeling and simulation',
+            phase: t('cars.phases.design.name'),
+            description: t('cars.phases.design.description'),
             icon: <MdFormatPaint />,
-            status: 'Complete'
+            status: t('cars.status.complete')
         },
         {
-            phase: 'Simulate',
-            description: 'FEA, CFD, and performance analysis',
+            phase: t('cars.phases.simulate.name'),
+            description: t('cars.phases.simulate.description'),
             icon: <MdLaptop />,
-            status: 'Complete'
+            status: t('cars.status.complete')
         },
         {
-            phase: 'Manufacture',
-            description: 'Precision machining and fabrication',
+            phase: t('cars.phases.manufacture.name'),
+            description: t('cars.phases.manufacture.description'),
             icon: <MdOutlinePrecisionManufacturing />,
-            status: 'In Progress'
+            status: t('cars.status.inProgress')
         },
         {
-            phase: 'Assemble',
-            description: 'Component integration and assembly',
+            phase: t('cars.phases.assemble.name'),
+            description: t('cars.phases.assemble.description'),
             icon: <MdSchema />,
-            status: 'Upcoming'
+            status: t('cars.status.upcoming')
         },
         {
-            phase: 'Test',
-            description: 'Track testing and optimization',
+            phase: t('cars.phases.test.name'),
+            description: t('cars.phases.test.description'),
             icon: <MdSportsScore />,
-            status: 'Upcoming'
+            status: t('cars.status.upcoming')
         }
     ];
 
@@ -147,9 +147,9 @@ export default function OurCars() {
                 {/* Subsystems */}
                 <div className="mb-20">
                     <div className="text-center mb-16">
-                        <h3 className="text-3xl md:text-4xl font-light text-gray-900 dark:text-white mb-4">Engineering Excellence</h3>
+                        <h3 className="text-3xl md:text-4xl font-light text-gray-900 dark:text-white mb-4">{t('cars.development.engineering.title')}</h3>
                         <div className="w-12 h-px bg-gray-400 mx-auto mb-4"></div>
-                        <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">Every component is meticulously designed and optimized for peak performance</p>
+                        <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">{t('cars.development.engineering.description')}</p>
                     </div>
 
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -159,7 +159,7 @@ export default function OurCars() {
                                     <div className="flex items-center justify-between mb-3">
                                         <span className="text-5xl text-red-500">{subsystem.icon}</span>
                                         <Badge variant="outline" className={subsystem.color}>
-                                            Subsystem
+                                            {t('cars.badge.subsystem')}
                                         </Badge>
                                     </div>
                                     <CardTitle className="text-xl font-medium text-gray-900 dark:text-white">
@@ -187,9 +187,9 @@ export default function OurCars() {
                 {/* Development Process */}
                 <div className="mb-20">
                     <div className="text-center mb-16">
-                        <h3 className="text-3xl md:text-4xl font-light text-gray-900 dark:text-white mb-4">Development Process</h3>
+                        <h3 className="text-3xl md:text-4xl font-light text-gray-900 dark:text-white mb-4">{t('cars.development.title')}</h3>
                         <div className="w-12 h-px bg-gray-400 mx-auto mb-4"></div>
-                        <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">We take pride in designing, simulating, manufacturing, assembling, and testing every component ourselves</p>
+                        <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">{t('cars.development.description')}</p>
                     </div>
 
                     <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-6">
@@ -221,10 +221,10 @@ export default function OurCars() {
                                 <div className="text-6xl mb-6 text-center text-red-500"><MdPsychology /></div>
                             </div>
                             <h3 className="text-2xl md:text-3xl font-light text-gray-800 dark:text-gray-200 mb-4">
-                                Innovation in <span className="font-semibold text-red-600">Motion</span>
+                                {t('cars.innovation.title')}
                             </h3>
                             <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300 leading-relaxed">
-                                Every bolt, every line of code, every weld represents our commitment to pushing the boundaries of what&apos;s possible in Formula SAE racing.
+                                {t('cars.innovation.description')}
                             </p>
                         </CardContent>
                     </Card>
