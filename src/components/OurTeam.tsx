@@ -292,7 +292,7 @@ export default function OurTeam() {
     },
     {
       name: t('team.subTeams.suspension.name'),
-      image: '/chassis.JPG',
+      image: '/subsystems/chassis.JPG',
       route: '/our-team/suspension',
       icon: MdSpeed,
       description: t('team.subTeams.suspension.description'),
@@ -308,7 +308,7 @@ export default function OurTeam() {
     },
     {
       name: t('team.subTeams.chassis.name'),
-      image: '/chassis.JPG',
+      image: '/subsystems/chassis.JPG',
       route: '/our-team/chassis',
       icon: MdBuild,
       description: t('team.subTeams.chassis.description'),
@@ -340,7 +340,7 @@ export default function OurTeam() {
     },
     {
       name: t('team.subTeams.vehicleDynamics.name'),
-      image: '/chassis.JPG',
+      image: '/subsystems/chassis.JPG',
       route: '/our-team/vehicle-dynamics',
       icon: MdScience,
       description: t('team.subTeams.vehicleDynamics.description'),
