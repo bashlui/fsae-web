@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/context/LanguageContext';
@@ -17,45 +18,66 @@ export default function Sponsors() {
   const sponsors = [
     {
       name: 'Herramientas Cumbres',
-      logo: '/logo-placeholder.png',
-      website: '#',
-      description: t('sponsors.herramientasCumbres.description')
+      logo: '/sponsors/herramientas_cumbres_sponsor.png',
+      website: 'https://www.herramientascumbres.com/',
+      description: t('sponsors.herramientasCumbres.description'),
+      gradient: 'from-blue-600/20 to-blue-800/20',
+      borderColor: 'border-blue-500/30',
+      hoverColor: 'hover:border-blue-400/50'
     },
     {
       name: 'Autodromo Virtual Rio Grande',
-      logo: '/logo-placeholder.png',
-      website: '#',
-      description: t('sponsors.autrodromoVirtual.description')
+      logo: '/sponsors/autodromo_sponsor.png',
+      website: 'http://www.autodromovirtual.com.ar/',
+      description: t('sponsors.autrodromoVirtual.description'),
+      gradient: 'from-green-600/20 to-green-800/20',
+      borderColor: 'border-green-500/30',
+      hoverColor: 'hover:border-green-400/50'
     },
     {
       name: 'Tacos Melany',
-      logo: '/logo-placeholder.png',
-      website: '#',
-      description: t('sponsors.tacosMelany.description')
+      logo: '/sponsors/tacos_melany_sponsor.png',
+      website: 'https://www.facebook.com/p/Trompo-Tacos-Melany-100044762846464/',
+      description: t('sponsors.tacosMelany.description'),
+      gradient: 'from-yellow-600/20 to-orange-800/20',
+      borderColor: 'border-yellow-500/30',
+      hoverColor: 'hover:border-yellow-400/50'
     },
     {
       name: 'puul',
-      logo: '/logo-placeholder.png',
-      website: '#',
-      description: t('sponsors.puul.description')
+      logo: '/sponsors/puul_sponsor.png',
+      website: 'https://www.puul.co/',
+      description: t('sponsors.puul.description'),
+      gradient: 'from-lime-600/20 to-green-800/20',
+      borderColor: 'border-lime-500/30',
+      hoverColor: 'hover:border-lime-400/50'
     },
     {
-      name: 'Buusch',
-      logo: '/logo-placeholder.png',
-      website: '#',
-      description: t('sponsors.buusch.description')
+      name: 'Busch',
+      logo: '/sponsors/busch_sponsor.png',
+      website: 'https://www.buschvacuum.com/mx/es/',
+      description: t('sponsors.busch.description'),
+      gradient: 'from-red-600/20 to-red-800/20',
+      borderColor: 'border-red-500/30',
+      hoverColor: 'hover:border-red-400/50'
     },
     {
       name: 'Ansys',
-      logo: '/logo-placeholder.png',
+      logo: '/sponsors/ansys_sponsor.png',
       website: 'https://www.ansys.com',
-      description: t('sponsors.ansys.description')
+      description: t('sponsors.ansys.description'),
+      gradient: 'from-blue-600/20 to-cyan-800/20',
+      borderColor: 'border-cyan-500/30',
+      hoverColor: 'hover:border-cyan-400/50'
     },
     {
       name: 'Altair',
-      logo: '/logo-placeholder.png',
+      logo: '/sponsors/altair_background.png',
       website: 'https://www.altair.com',
-      description: t('sponsors.altair.description')
+      description: t('sponsors.altair.description'),
+      gradient: 'from-gray-600/20 to-slate-800/20',
+      borderColor: 'border-gray-500/30',
+      hoverColor: 'hover:border-gray-400/50'
     }
   ];
 
@@ -109,19 +131,35 @@ export default function Sponsors() {
             {sponsors.map((sponsor) => (
               <Card 
                 key={sponsor.name}
-                className="bg-gray-800/50 border-gray-700 hover:border-red-500/50 transition-colors duration-300"
+                className={`bg-gradient-to-br ${sponsor.gradient} backdrop-blur-sm border ${sponsor.borderColor} ${sponsor.hoverColor} transition-all duration-300 hover:shadow-xl hover:scale-105`}
               >
                 <div className="p-6">
                   <div className="flex flex-col items-center text-center space-y-4">
-                    <div className="w-20 h-20 bg-gray-700 rounded-lg flex items-center justify-center">
-                      <span className="text-xs text-gray-400">Logo</span>
+                    {/* Logo */}
+                    <div className="w-32 h-32 bg-white/10 rounded-xl flex items-center justify-center p-4 backdrop-blur-sm border border-white/20">
+                      <Image
+                        src={sponsor.logo}
+                        alt={`${sponsor.name} logo`}
+                        width={120}
+                        height={120}
+                        className="w-full h-full object-contain filter drop-shadow-sm"
+                        onError={(e) => {
+                          // Fallback to placeholder if image fails to load
+                          e.currentTarget.style.display = 'none';
+                          const fallback = e.currentTarget.nextElementSibling as HTMLElement;
+                          if (fallback) fallback.style.display = 'flex';
+                        }}
+                      />
+                      <div className="hidden w-full h-full items-center justify-center">
+                        <span className="text-xs text-gray-400">Logo</span>
+                      </div>
                     </div>
                     
                     <h3 className="text-lg font-medium text-white">
                       {sponsor.name}
                     </h3>
                     
-                    <p className="text-sm text-gray-300">
+                    <p className="text-sm text-gray-200 leading-relaxed">
                       {sponsor.description}
                     </p>
                     
@@ -129,7 +167,7 @@ export default function Sponsors() {
                       variant="outline"
                       size="sm"
                       asChild
-                      className="text-gray-300 border-gray-600 hover:text-white hover:border-red-500"
+                      className="text-gray-200 border-white/30 hover:text-white hover:border-white/50 hover:bg-white/10 transition-all duration-200"
                     >
                       <Link 
                         href={sponsor.website}

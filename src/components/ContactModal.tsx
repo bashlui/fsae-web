@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -12,7 +12,7 @@ import {
   DialogTitle,
 } from '@/components/ui/dialog';
 import { useLanguage } from '@/context/LanguageContext';
-import { MdEmail, MdPhone, MdSchedule, MdLocationOn } from 'react-icons/md';
+import { MdEmail, MdPhone, MdLocationOn } from 'react-icons/md';
 import emailjs from '@emailjs/browser';
 
 interface ContactModalProps {
@@ -26,24 +26,57 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
   const [isLoading, setIsLoading] = useState(false);
   const [message, setMessage] = useState('');
   const [formData, setFormData] = useState({
-    user_name: '',
-    user_email: '',
+    name: '',
+    email: '',
     subject: '',
     message: ''
   });
 
   // EmailJS Configuration - Add your credentials here
-  const EMAILJS_SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || 'YOUR_SERVICE_ID';
-  const EMAILJS_TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || 'YOUR_TEMPLATE_ID';
-  const EMAILJS_PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || 'YOUR_PUBLIC_KEY';
+  const EMAILJS_SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+  const EMAILJS_TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+  const EMAILJS_PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
+
+  // Initialize EmailJS
+  useEffect(() => {
+    if (EMAILJS_PUBLIC_KEY) {
+      emailjs.init(EMAILJS_PUBLIC_KEY);
+      console.log('EmailJS initialized with public key');
+    }
+  }, [EMAILJS_PUBLIC_KEY]);
+
+  // Debug function to log environment variables (only in development)
+  const debugEmailJSConfig = () => {
+    if (process.env.NODE_ENV === 'development') {
+      console.log('EmailJS Configuration Debug:');
+      console.log('Service ID:', EMAILJS_SERVICE_ID ? 'SET' : 'NOT SET');
+      console.log('Template ID:', EMAILJS_TEMPLATE_ID ? 'SET' : 'NOT SET');
+      console.log('Public Key:', EMAILJS_PUBLIC_KEY ? 'SET' : 'NOT SET');
+    }
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
     setMessage('');
 
+    // Debug configuration
+    debugEmailJSConfig();
+
+    // Check if environment variables are properly set
+    if (EMAILJS_SERVICE_ID === 'YOUR_SERVICE_ID' || 
+        EMAILJS_TEMPLATE_ID === 'YOUR_TEMPLATE_ID' || 
+        EMAILJS_PUBLIC_KEY === 'YOUR_PUBLIC_KEY') {
+      console.error('EmailJS credentials not properly configured. Please check your .env.local file.');
+      setMessage('Configuration error: EmailJS credentials not set. Please check environment variables.');
+      setIsLoading(false);
+      return;
+    }
+
     try {
-      if (form.current) {
+      if (form.current && EMAILJS_SERVICE_ID && EMAILJS_TEMPLATE_ID && EMAILJS_PUBLIC_KEY) {
+        console.log('Attempting to send email with EmailJS...');
+        
         const result = await emailjs.sendForm(
           EMAILJS_SERVICE_ID,
           EMAILJS_TEMPLATE_ID,
@@ -51,24 +84,66 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
           EMAILJS_PUBLIC_KEY
         );
         
+        console.log('EmailJS Result:', result);
+        
         if (result.text === 'OK') {
+          console.log('Email sent successfully!');
           setMessage(t('contact.form.success'));
           setFormData({
-            user_name: '',
-            user_email: '',
+            name: '',
+            email: '',
             subject: '',
             message: ''
           });
-          // Auto close after 2 seconds
+          // Auto close after 3 seconds to allow user to see success message
           setTimeout(() => {
             onClose();
             setMessage('');
-          }, 2000);
+          }, 3000);
+        } else {
+          console.error('EmailJS returned unexpected result:', result);
+          setMessage(`Email sending failed: ${result.text}`);
         }
       }
-    } catch (error) {
-      console.error('EmailJS Error:', error);
-      setMessage(t('contact.form.error'));
+    } catch (error: unknown) {
+      const errorObj = error as { status?: number; text?: string; message?: string };
+      console.error('EmailJS Error Details:', {
+        error,
+        message: errorObj?.message,
+        status: errorObj?.status,
+        text: errorObj?.text
+      });
+      
+      // More detailed error messages
+      let errorMessage = t('contact.form.error');
+      if (errorObj?.status) {
+        switch (errorObj.status) {
+          case 400:
+            errorMessage = 'Bad Request: Please check your form data.';
+            break;
+          case 401:
+            errorMessage = 'Unauthorized: Please check your EmailJS credentials.';
+            break;
+          case 403:
+            errorMessage = 'Forbidden: EmailJS service access denied.';
+            break;
+          case 404:
+            errorMessage = 'Not Found: EmailJS service or template not found.';
+            break;
+          case 422:
+            errorMessage = 'The recipients address is empty. Make sure the recipient email is set in the EmailJS template settings, NOT as a form field. Contact admin to configure: Fsaetec.mty@outlook.com';
+            break;
+          case 429:
+            errorMessage = 'Rate Limited: Too many requests. Please try again later.';
+            break;
+          default:
+            errorMessage = `Email service error (${errorObj.status}): ${errorObj.text || errorObj.message}`;
+        }
+      } else if (errorObj?.message) {
+        errorMessage = `Error: ${errorObj.message}`;
+      }
+      
+      setMessage(errorMessage);
     } finally {
       setIsLoading(false);
     }
@@ -133,17 +208,6 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
               </div>
             </div>
             
-            {/* Office Hours */}
-            <div className="flex items-start space-x-3">
-              <div className="bg-red-600/20 p-2 rounded-lg">
-                <MdSchedule className="text-red-500 text-xl" />
-              </div>
-              <div>
-                <p className="text-sm text-gray-400 mb-1">{t('contact.info.office')}</p>
-                <p className="text-white font-medium">{t('contact.info.officeHours')}</p>
-              </div>
-            </div>
-            
             {/* Location */}
             <div className="flex items-start space-x-3">
               <div className="bg-red-600/20 p-2 rounded-lg">
@@ -168,13 +232,13 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
           <div>
             <form ref={form} onSubmit={handleSubmit} className="space-y-4">
               <div className="space-y-2">
-                <label htmlFor="user_name" className="text-sm font-medium text-gray-200">
+                <label htmlFor="name" className="text-sm font-medium text-gray-200">
                   {t('contact.form.name')}
                 </label>
                 <Input
-                  id="user_name"
-                  name="user_name"
-                  value={formData.user_name}
+                  id="name"
+                  name="name"
+                  value={formData.name}
                   onChange={handleChange}
                   required
                   disabled={isLoading}
@@ -184,14 +248,14 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
               </div>
               
               <div className="space-y-2">
-                <label htmlFor="user_email" className="text-sm font-medium text-gray-200">
+                <label htmlFor="email" className="text-sm font-medium text-gray-200">
                   {t('contact.form.email')}
                 </label>
                 <Input
-                  id="user_email"
-                  name="user_email"
+                  id="email"
+                  name="email"
                   type="email"
-                  value={formData.user_email}
+                  value={formData.email}
                   onChange={handleChange}
                   required
                   disabled={isLoading}

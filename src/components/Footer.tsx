@@ -54,10 +54,10 @@ export default function Footer() {
               <div className="flex items-center space-x-2">
                 <MdEmail className="text-red-500 text-sm" />
                 <a 
-                  href="mailto:fsaetec.mty@outlook.com"
+                  href="mailto:Fsaetec.mty@outlook.com"
                   className="text-xs text-gray-300 hover:text-red-500 transition-colors duration-200"
                 >
-                  fsaetec.mty@outlook.com
+                  Fsaetec.mty@outlook.com
                 </a>
               </div>
               <div className="flex items-center space-x-2">

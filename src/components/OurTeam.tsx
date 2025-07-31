@@ -33,7 +33,6 @@ interface MainTeam {
   description: string;
   mission: string;
   values: string[];
-  achievements: string[];
   totalMembers: number;
   founded: string;
   icon: React.ElementType;
@@ -121,19 +120,6 @@ function MainTeamModal({ team, isOpen, onClose, t }: MainTeamModalProps) {
                 <li key={index} className="flex items-start text-gray-700 dark:text-gray-300">
                   <span className="text-red-500 mr-3 mt-1">•</span>
                   {value}
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Achievements */}
-          <div className="mb-8">
-            <h3 className="text-xl font-semibold text-red-600 mb-4">{t('team.modal.achievements')}</h3>
-            <ul className="space-y-2">
-              {team.achievements.map((achievement, index) => (
-                <li key={index} className="flex items-start text-gray-700 dark:text-gray-300">
-                  <span className="text-red-500 mr-3 mt-1">🏆</span>
-                  {achievement}
                 </li>
               ))}
             </ul>
@@ -266,15 +252,6 @@ export default function OurTeam() {
       t('team.main.values.4'),
       t('team.main.values.5'),
       t('team.main.values.6')
-    ],
-    achievements: [
-      t('team.main.achievements.0'),
-      t('team.main.achievements.1'),
-      t('team.main.achievements.2'),
-      t('team.main.achievements.3'),
-      t('team.main.achievements.4'),
-      t('team.main.achievements.5'),
-      t('team.main.achievements.6')
     ],
     totalMembers: 60,
     founded: '2018'
@@ -533,11 +510,6 @@ export default function OurTeam() {
                           {t('team.clickToLearn')}
                         </span>
                       </div>
-                      <div className="hidden md:flex items-center space-x-2 text-white/70 text-sm">
-                        <span>9 Specialized Teams</span>
-                        <span>•</span>
-                        <span>Engineering Excellence</span>
-                      </div>
                     </div>
                   </div>
                 </div>
@@ -615,10 +587,6 @@ export default function OurTeam() {
                     
                     {/* Call to Action */}
                     <div className="flex items-center justify-between">
-                      <button className="text-sm text-gray-400 group-hover:text-red-400 transition-colors duration-300 flex items-center">
-                        <span className="mr-1">→</span>
-                        Learn more
-                      </button>
                       <div className="w-8 h-px bg-gradient-to-r from-red-500 to-transparent group-hover:from-red-400 transition-colors duration-300"></div>
                     </div>
                   </div>
