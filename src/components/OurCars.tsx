@@ -119,16 +119,16 @@ export default function OurCars() {
     ];
 
     return (
-        <section className="py-24 bg-gradient-to-b from-white to-gray-100 dark:from-gray-900 dark:to-gray-800 text-gray-900 dark:text-white">
+        <section className="py-24 bg-gradient-to-br from-gray-900 via-gray-800 to-slate-900 text-white">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 
                 {/* Header */}
                 <div className="text-center mb-20">
-                    <h2 className="text-4xl md:text-5xl font-light text-gray-900 dark:text-white mb-4">
+                    <h2 className="text-4xl md:text-5xl font-light text-white mb-4">
                         {t('cars.title')}
                     </h2>
-                    <div className="w-16 h-px bg-red-600 mx-auto mb-6"></div>
-                    <p className="text-lg text-gray-600 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed mb-8">
+                    <div className="w-16 h-px bg-gradient-to-r from-red-500 to-red-600 mx-auto mb-6"></div>
+                    <p className="text-lg text-gray-300 max-w-4xl mx-auto leading-relaxed mb-8">
                         {t('cars.description')}
                     </p>
                     
@@ -147,34 +147,36 @@ export default function OurCars() {
                 {/* Subsystems */}
                 <div className="mb-20">
                     <div className="text-center mb-16">
-                        <h3 className="text-3xl md:text-4xl font-light text-gray-900 dark:text-white mb-4">{t('cars.development.engineering.title')}</h3>
-                        <div className="w-12 h-px bg-gray-400 mx-auto mb-4"></div>
-                        <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">{t('cars.development.engineering.description')}</p>
+                        <h3 className="text-3xl md:text-4xl font-light text-white mb-4">{t('cars.development.engineering.title')}</h3>
+                        <div className="w-12 h-px bg-gradient-to-r from-red-400 to-red-500 mx-auto mb-4"></div>
+                        <p className="text-gray-300 max-w-2xl mx-auto">{t('cars.development.engineering.description')}</p>
                     </div>
 
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {subsystems.map((subsystem) => (
-                            <Card key={subsystem.name} className="h-full border-0 shadow-sm hover:shadow-lg transition-all duration-300 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm">
+                            <Card key={subsystem.name} className="h-full border-0 shadow-lg hover:shadow-xl transition-all duration-300 bg-gradient-to-br from-gray-800/90 to-gray-700/90 backdrop-blur-sm border border-gray-600/20 overflow-hidden">
+                                {/* Red Cool Line */}
+                                <div className="relative h-2 bg-gradient-to-r from-red-600 via-red-500 to-red-600">
+                                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-red-400/50 to-transparent animate-pulse"></div>
+                                    <div className="absolute top-0 left-1/4 w-1/2 h-full bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
+                                </div>
                                 <CardHeader className="pb-4">
                                     <div className="flex items-center justify-between mb-3">
-                                        <span className="text-5xl text-red-500">{subsystem.icon}</span>
-                                        <Badge variant="outline" className={subsystem.color}>
-                                            {t('cars.badge.subsystem')}
-                                        </Badge>
+                                        <span className="text-3xl text-red-500">{subsystem.icon}</span>
                                     </div>
-                                    <CardTitle className="text-xl font-medium text-gray-900 dark:text-white">
+                                    <CardTitle className="text-xl font-medium text-white">
                                         {subsystem.name}
                                     </CardTitle>
                                 </CardHeader>
                                 <CardContent className="pt-0">
-                                    <CardDescription className="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+                                    <CardDescription className="text-gray-300 leading-relaxed mb-4">
                                         {subsystem.description}
                                     </CardDescription>
                                     <div className="space-y-2">
                                         {subsystem.details.map((detail, index) => (
                                             <div key={index} className="flex items-start">
                                                 <div className={`w-1.5 h-1.5 rounded-full mt-2 mr-3 ${subsystem.accentColor.replace('text-', 'bg-')}`}></div>
-                                                <span className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">{detail}</span>
+                                                <span className="text-sm text-gray-300 leading-relaxed">{detail}</span>
                                             </div>
                                         ))}
                                     </div>
@@ -187,25 +189,25 @@ export default function OurCars() {
                 {/* Development Process */}
                 <div className="mb-20">
                     <div className="text-center mb-16">
-                        <h3 className="text-3xl md:text-4xl font-light text-gray-900 dark:text-white mb-4">{t('cars.development.title')}</h3>
-                        <div className="w-12 h-px bg-gray-400 mx-auto mb-4"></div>
-                        <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">{t('cars.development.description')}</p>
+                        <h3 className="text-3xl md:text-4xl font-light text-white mb-4">{t('cars.development.title')}</h3>
+                        <div className="w-12 h-px bg-gradient-to-r from-red-400 to-red-500 mx-auto mb-4"></div>
+                        <p className="text-gray-300 max-w-2xl mx-auto">{t('cars.development.description')}</p>
                     </div>
 
                     <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-6">
                         {developmentPhases.map((phase, index) => (
                             <div key={phase.phase} className="relative">
-                                <Card className="text-center border-0 shadow-sm hover:shadow-md transition-all duration-300 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm">
+                                <Card className="text-center border-0 shadow-lg hover:shadow-xl transition-all duration-300 bg-gradient-to-br from-gray-800/90 to-gray-700/90 backdrop-blur-sm border border-gray-600/20">
                                     <CardContent className="p-6 flex flex-col items-center">
                                         <div className="text-5xl text-red-500 mb-4">{phase.icon}</div>
-                                        <h4 className="text-lg font-medium text-gray-900 dark:text-white mb-2 text-center">{phase.phase}</h4>
-                                        <p className="text-sm text-gray-600 dark:text-gray-400 mb-4 text-center">{phase.description}</p>
+                                        <h4 className="text-lg font-medium text-white mb-2 text-center">{phase.phase}</h4>
+                                        <p className="text-sm text-gray-300 mb-4 text-center">{phase.description}</p>
                                     </CardContent>
                                 </Card>
                                 {index < developmentPhases.length - 1 && (
                                     <div className="hidden lg:block absolute top-1/2 -right-3 transform -translate-y-1/2">
-                                        <div className="w-6 h-0.5 bg-gray-300 dark:bg-gray-600"></div>
-                                        <div className="absolute -right-1.5 -top-1 w-3 h-3 bg-gray-400 dark:bg-gray-500 transform rotate-45"></div>
+                                        <div className="w-6 h-0.5 bg-gray-600"></div>
+                                        <div className="absolute -right-1.5 -top-1 w-3 h-3 bg-gray-500 transform rotate-45"></div>
                                     </div>
                                 )}
                             </div>
@@ -215,15 +217,15 @@ export default function OurCars() {
 
                 {/* Innovation Statement */}
                 <div className="text-center">
-                    <Card className="max-w-4xl mx-auto border-0 shadow-lg bg-gradient-to-r from-red-50 to-red-100/50 dark:from-red-900/20 dark:to-red-800/20 backdrop-blur-sm">
+                    <Card className="max-w-4xl mx-auto border-0 shadow-xl bg-gradient-to-r from-red-900/30 to-red-800/30 backdrop-blur-sm border border-red-700/30">
                         <CardContent className="p-8 md:p-12">
                             <div className="flex justify-center">
                                 <div className="text-6xl mb-6 text-center text-red-500"><MdPsychology /></div>
                             </div>
-                            <h3 className="text-2xl md:text-3xl font-light text-gray-800 dark:text-gray-200 mb-4">
+                            <h3 className="text-2xl md:text-3xl font-light text-gray-200 mb-4">
                                 {t('cars.innovation.title')}
                             </h3>
-                            <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300 leading-relaxed">
+                            <p className="text-lg md:text-xl text-gray-300 leading-relaxed">
                                 {t('cars.innovation.description')}
                             </p>
                         </CardContent>

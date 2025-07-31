@@ -7,6 +7,8 @@ body {
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
   margin: 0;
   padding: 0;
+  background: #111827;
+  color: #f3f4f6;
 }
 
 /* Smooth scrolling for the entire page */
@@ -20,10 +22,6 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
-
-.dark ::-webkit-scrollbar-track {
   background: #374151;
 }
 

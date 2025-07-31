@@ -3,13 +3,12 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { useTheme } from '@/context/ThemeContext';
 import { useLanguage } from '@/context/LanguageContext';
-import { MdLightMode, MdDarkMode } from 'react-icons/md';
+import ContactModal from '@/components/ContactModal';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const { theme, toggleTheme } = useTheme();
+  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   const { language, toggleLanguage, t } = useLanguage();
 
   const navItems = [
@@ -18,7 +17,6 @@ export default function Navbar() {
     { href: '/about-fsae', label: t('nav.aboutFsae') },
     { href: '/our-team', label: t('nav.ourTeam') },
     { href: '/sponsors', label: t('nav.sponsors') },
-    { href: '/contact', label: t('nav.contact') },
   ];
 
   return (
@@ -49,6 +47,15 @@ export default function Navbar() {
               </div>
             ))}
             
+            {/* Contact Button */}
+            <Button
+              variant="ghost"
+              onClick={() => setIsContactModalOpen(true)}
+              className="text-white/90 hover:text-red-600 hover:bg-white/10 transition-colors duration-200 font-light"
+            >
+              {t('nav.contact')}
+            </Button>
+            
             {/* Language Toggle Button */}
             <Button
               variant="ghost"
@@ -59,16 +66,6 @@ export default function Navbar() {
               <span className="font-medium">
                 {language === 'en' ? 'ES' : 'EN'}
               </span>
-            </Button>
-            
-            {/* Theme Toggle Button */}
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={toggleTheme}
-              className="text-white/90 hover:text-red-600 hover:bg-white/10 transition-colors duration-200 ml-2"
-            >
-              {theme === 'light' ? <MdDarkMode size={20} /> : <MdLightMode size={20} />}
             </Button>
           </div>
 
@@ -83,14 +80,6 @@ export default function Navbar() {
               <span className="text-sm font-medium">
                 {language === 'en' ? 'ES' : 'EN'}
               </span>
-            </Button>
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={toggleTheme}
-              className="text-white/90 hover:text-red-600 hover:bg-white/10"
-            >
-              {theme === 'light' ? <MdDarkMode size={18} /> : <MdLightMode size={18} />}
             </Button>
             <Button
               variant="ghost"
@@ -124,9 +113,27 @@ export default function Navbar() {
                 </Button>
               </div>
             ))}
+            
+            {/* Mobile Contact Button */}
+            <Button
+              variant="ghost"
+              onClick={() => {
+                setIsContactModalOpen(true);
+                setIsOpen(false);
+              }}
+              className="w-full justify-start text-white/90 hover:text-red-600 hover:bg-white/10 font-light"
+            >
+              {t('nav.contact')}
+            </Button>
           </div>
         </div>
       </div>
+
+      {/* Contact Modal */}
+      <ContactModal 
+        isOpen={isContactModalOpen} 
+        onClose={() => setIsContactModalOpen(false)} 
+      />
     </nav>
   );
 }

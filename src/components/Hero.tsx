@@ -8,7 +8,7 @@ export default function Hero() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative bg-gray-900 text-white overflow-hidden">
+      <section className="relative bg-gradient-to-br from-gray-900 via-slate-900 to-gray-800 text-white overflow-hidden">
         {/* Background Pattern */}
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 md:py-40">
           
@@ -34,16 +34,16 @@ export default function Hero() {
         </div>
 
         {/* Bottom gradient fade */}
-        <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-white dark:from-gray-900 to-transparent"></div>
+        <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-gray-900 to-transparent"></div>
       </section>
 
       {/* Welcome Section */}
-      <section className="bg-white dark:bg-gray-900 py-16">
+      <section className="bg-gradient-to-b from-gray-900 to-gray-800 py-16">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300 font-light leading-relaxed">
+          <p className="text-lg md:text-xl text-gray-300 font-light leading-relaxed">
             {t('home.welcome.description')}
             <br className="hidden md:block" />
-            <span className="text-red-600 font-medium">{t('home.hero.description')}</span>
+            <span className="text-red-500 font-medium">{t('home.hero.description')}</span>
           </p>
         </div>
       </section>
