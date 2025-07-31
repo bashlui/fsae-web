@@ -210,20 +210,12 @@ const translations = {
         'team.main.values.4': 'Sustainability and responsible engineering practices',
         'team.main.values.5': 'Knowledge sharing and mentorship within the team',
         'team.main.values.6': 'Representing Tecnológico de Monterrey with pride and professionalism',
-        'team.main.achievements.0': '2023 Formula SAE Michigan - Top 15 Overall Finish',
-        'team.main.achievements.1': '2023 Best Presentation Award - Business Event',
-        'team.main.achievements.2': '2022 Innovation Award - Aerodynamics Package',
-        'team.main.achievements.3': '2022 Formula SAE Lincoln - Top 20 Dynamic Events',
-        'team.main.achievements.4': '2021 Virtual Competition - 3rd Place Cost Event',
-        'team.main.achievements.5': 'Multiple Dean List academic achievements by team members',
-        'team.main.achievements.6': 'Partnership with leading automotive industry sponsors',
         
         // Modal Labels
         'team.modal.about': 'About Our Team',
         'team.modal.aboutTeam': 'About Our Team',
         'team.modal.mission': 'Our Mission',
         'team.modal.values': 'Our Values',
-        'team.modal.achievements': 'Recent Achievements',
         'team.modal.totalMembers': 'Total Members',
         'team.modal.founded': 'Founded',
         'team.modal.students': 'Students',
@@ -232,7 +224,6 @@ const translations = {
         'team.modal.members': 'Team Members',
         
         // Sub Teams
-                // Sub Teams
         'team.powertrain.description': 'The Powertrain team is responsible for the heart of our race car - the engine and transmission systems. We focus on maximizing power while ensuring reliability and efficiency throughout the competition.',
         'team.electrical.description': 'Our Electrical team designs and implements all electrical systems in the vehicle, from basic wiring harnesses to advanced control systems that monitor and optimize vehicle performance.',
         'team.suspension.description': 'The Suspension team develops the critical systems that connect our car to the road. We design suspension geometry and components that provide optimal handling, comfort, and performance.',
@@ -722,7 +713,7 @@ const translations = {
         'common.save': 'Guardar',
         
         // Footer
-        'footer.copyright': '© 2024 FSAE TEC. Todos los derechos reservados.',
+        'footer.copyright': '© 2025 FSAE TEC. Todos los derechos reservados.',
         'footer.follow': 'Síguenos',
         'footer.quickLinks': 'Enlaces Rápidos',
         'footer.contact': 'Información de Contacto',
@@ -733,9 +724,7 @@ const translations = {
         'contact.info.title': 'Información de Contacto',
         'contact.info.email': 'Correo Electrónico',
         'contact.info.phone': 'Número de Teléfono',
-        'contact.info.office': 'Horario de Oficina',
         'contact.info.location': 'Ubicación',
-        'contact.info.officeHours': 'Lunes - Viernes: 9:00 AM - 6:00 PM',
         'contact.info.response': 'Normalmente respondemos en 24 horas',
         'contact.form.name': 'Nombre Completo',
         'contact.form.namePlaceholder': 'Ingresa tu nombre completo',
