@@ -88,18 +88,18 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
         
         if (result.text === 'OK') {
           console.log('Email sent successfully!');
-          setMessage(t('contact.form.success'));
+          setMessage(t('contact.form.success') + ' ✅ Confirmación: Tu mensaje fue enviado exitosamente al equipo FSAE. Te contactaremos pronto.');
           setFormData({
             name: '',
             email: '',
             subject: '',
             message: ''
           });
-          // Auto close after 3 seconds to allow user to see success message
+          // Auto close after 5 seconds to allow user to read confirmation
           setTimeout(() => {
             onClose();
             setMessage('');
-          }, 3000);
+          }, 5000);
         } else {
           console.error('EmailJS returned unexpected result:', result);
           setMessage(`Email sending failed: ${result.text}`);
@@ -131,7 +131,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
             errorMessage = 'Not Found: EmailJS service or template not found.';
             break;
           case 422:
-            errorMessage = 'The recipients address is empty. Make sure the recipient email is set in the EmailJS template settings, NOT as a form field. Contact admin to configure: Fsaetec.mty@outlook.com';
+            errorMessage = '⚠️ Error de configuración: El correo de destino no está configurado en EmailJS. Instrucciones para el administrador:\n\n1. Ve a EmailJS Dashboard\n2. Edita el template\n3. En "To Email" pon: Fsaetec.mty@outlook.com\n4. NO uses {{to_email}} como campo del formulario\n\nMientras tanto, puedes contactar directamente: Fsaetec.mty@outlook.com';
             break;
           case 429:
             errorMessage = 'Rate Limited: Too many requests. Please try again later.';
@@ -184,10 +184,10 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
               <div>
                 <p className="text-sm text-gray-400 mb-1">{t('contact.info.email')}</p>
                 <a 
-                  href="mailto:fsaetec.mty@outlook.com"
+                  href="mailto:Fsaemty@outlook.com"
                   className="text-white hover:text-red-400 transition-colors duration-200 font-medium"
                 >
-                  fsaetec.mty@outlook.com
+                  Fsaemty@outlook.com
                 </a>
               </div>
             </div>

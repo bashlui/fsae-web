@@ -32,7 +32,8 @@ export default function Home() {
       features: t('home.subsystems.aerodynamics.features'),
       icon: <MdAir />,
       color: 'from-blue-500 to-blue-600',
-      bgGradient: 'from-blue-900/20 to-blue-800/30'
+      bgGradient: 'from-blue-900/20 to-blue-800/30',
+      learnMore: t('home.subsystems.aerodynamics.learnMore')
     },
     { 
       name: t('team.subsystems.chassis'), 
@@ -40,7 +41,8 @@ export default function Home() {
       features: t('home.subsystems.chassis.features'),
       icon: <MdDirectionsCar />,
       color: 'from-gray-500 to-gray-600',
-      bgGradient: 'from-gray-800/20 to-gray-700/30'
+      bgGradient: 'from-gray-800/20 to-gray-700/30',
+      learnMore: t('home.subsystems.chassis.learnMore')
     },
     { 
       name: t('team.subsystems.powertrain'), 
@@ -48,7 +50,8 @@ export default function Home() {
       features: t('home.subsystems.powertrain.features'),
       icon: <MdSpeed />,
       color: 'from-orange-500 to-orange-600',
-      bgGradient: 'from-orange-900/20 to-orange-800/30'
+      bgGradient: 'from-orange-900/20 to-orange-800/30',
+      learnMore: t('home.subsystems.powertrain.learnMore')
     },
     { 
       name: t('team.subsystems.electronics'), 
@@ -56,7 +59,8 @@ export default function Home() {
       features: t('home.subsystems.electronics.features'),
       icon: <MdElectricBolt />,
       color: 'from-yellow-500 to-yellow-600',
-      bgGradient: 'from-yellow-900/20 to-yellow-800/30'
+      bgGradient: 'from-yellow-900/20 to-yellow-800/30',
+      learnMore: t('home.subsystems.electronics.learnMore')
     },
     { 
       name: t('team.subsystems.suspension'), 
@@ -64,7 +68,8 @@ export default function Home() {
       features: t('home.subsystems.suspension.features'),
       icon: <MdSettings />,
       color: 'from-green-500 to-green-600',
-      bgGradient: 'from-green-900/20 to-green-800/30'
+      bgGradient: 'from-green-900/20 to-green-800/30',
+      learnMore: t('home.subsystems.suspension.learnMore')
     },
   ];
 
@@ -210,7 +215,7 @@ export default function Home() {
                         className="mt-4 flex items-center text-xs text-gray-500 group-hover:text-red-400 transition-colors duration-300 hover:text-red-300 cursor-pointer"
                       >
                         <MdPlayArrow className="mr-1" />
-                        Learn more about this subsystem
+                        {subsystem.learnMore}
                       </button>
                     </CardContent>
                   </Card>

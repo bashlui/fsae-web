@@ -49,18 +49,23 @@ const translations = {
         'home.admin.stats': 'Leadership Excellence',
         'home.admin.achievements': '5 Core Areas • Strategic Planning • Professional Growth',
         'home.closing.message': 'Together, we are more than just a student team — we are a racing family building engineering legends.',
-        
+
         // Technical Subsystems Descriptions
         'home.subsystems.aerodynamics.description': 'Designing wings and bodywork that slice through air with surgical precision, optimizing downforce and minimizing drag for maximum track performance',
         'home.subsystems.aerodynamics.features': 'CFD Analysis • Wind Tunnel Testing • Carbon Fiber Construction',
+        'home.subsystems.aerodynamics.learnMore': 'Discover how our aerodynamics team harnesses airflow to create downforce while minimizing drag, using advanced CFD simulations and wind tunnel testing to perfect every wing angle and body panel.',
         'home.subsystems.chassis.description': 'Engineering a lightweight yet rigid structure that serves as the backbone of our race car, balancing strength with weight optimization',
         'home.subsystems.chassis.features': 'Steel Spaceframe • FEA Analysis • Safety Integration',
+        'home.subsystems.chassis.learnMore': 'Learn about our chassis design process, from initial CAD modeling to FEA validation, creating a steel spaceframe that provides maximum safety while maintaining optimal weight distribution.',
         'home.subsystems.powertrain.description': 'Developing high-performance propulsion systems that deliver raw power with exceptional reliability and efficiency on the track',
         'home.subsystems.powertrain.features': 'Engine Tuning • Transmission • Fuel Systems',
+        'home.subsystems.powertrain.learnMore': 'Explore our powertrain engineering, from engine selection and tuning to custom intake and exhaust systems, optimized for maximum power output and reliability in competition conditions.',
         'home.subsystems.electronics.description': 'Managing complex electrical systems that control everything from engine management to data acquisition and driver safety',
         'home.subsystems.electronics.features': 'ECU Programming • Data Logging • Sensor Integration',
+        'home.subsystems.electronics.learnMore': 'Dive into our electronics systems, featuring custom ECU programming, advanced sensor networks, and real-time data acquisition systems that monitor and optimize vehicle performance.',
         'home.subsystems.suspension.description': 'Fine-tuning suspension geometry and components to achieve optimal grip, balance, and handling characteristics for competitive racing',
         'home.subsystems.suspension.features': 'Geometry Optimization • Damper Tuning • Testing & Validation',
+        'home.subsystems.suspension.learnMore': 'Understand our suspension development process, from kinematic analysis to track testing, optimizing geometry and damping for maximum grip and handling precision in all racing conditions.',
         
         // Administration Team
         'home.admin.planning.name': 'Strategic Planning',
@@ -433,14 +438,19 @@ const translations = {
         // Technical Subsystems Descriptions
         'home.subsystems.aerodynamics.description': 'Diseñando alas y carrocería que cortan el aire con precisión quirúrgica, optimizando carga aerodinámica y minimizando resistencia para máximo rendimiento en pista',
         'home.subsystems.aerodynamics.features': 'Análisis CFD • Pruebas en Túnel de Viento • Construcción de Fibra de Carbono',
+        'home.subsystems.aerodynamics.learnMore': 'Descubre cómo nuestro equipo de aerodinámica aprovecha el flujo de aire para crear carga aerodinámica mientras minimiza la resistencia, usando simulaciones CFD avanzadas y pruebas en túnel de viento para perfeccionar cada ángulo de ala y panel de carrocería.',
         'home.subsystems.chassis.description': 'Diseñando una estructura liviana pero rígida que sirve como columna vertebral de nuestro auto de carrera, equilibrando resistencia con optimización de peso',
         'home.subsystems.chassis.features': 'Marco Espacial de Acero • Análisis FEA • Integración de Seguridad',
+        'home.subsystems.chassis.learnMore': 'Conoce nuestro proceso de diseño de chasis, desde el modelado CAD inicial hasta la validación FEA, creando un marco espacial de acero que proporciona máxima seguridad mientras mantiene distribución óptima de peso.',
         'home.subsystems.powertrain.description': 'Desarrollando sistemas de propulsión de alto rendimiento que entregan potencia bruta con confiabilidad excepcional y eficiencia en pista',
         'home.subsystems.powertrain.features': 'Afinación de Motor • Transmisión • Sistemas de Combustible',
+        'home.subsystems.powertrain.learnMore': 'Explora nuestra ingeniería de tren motriz, desde selección y afinación del motor hasta sistemas de admisión y escape personalizados, optimizados para máxima potencia y confiabilidad en condiciones de competencia.',
         'home.subsystems.electronics.description': 'Gestionando sistemas eléctricos complejos que controlan todo desde gestión del motor hasta adquisición de datos y seguridad del piloto',
         'home.subsystems.electronics.features': 'Programación ECU • Registro de Datos • Integración de Sensores',
+        'home.subsystems.electronics.learnMore': 'Sumérgete en nuestros sistemas electrónicos, con programación ECU personalizada, redes avanzadas de sensores y sistemas de adquisición de datos en tiempo real que monitorean y optimizan el rendimiento del vehículo.',
         'home.subsystems.suspension.description': 'Ajustando finamente la geometría de suspensión y componentes para lograr características óptimas de agarre, equilibrio y manejo para carreras competitivas',
         'home.subsystems.suspension.features': 'Optimización de Geometría • Afinación de Amortiguadores • Pruebas y Validación',
+        'home.subsystems.suspension.learnMore': 'Comprende nuestro proceso de desarrollo de suspensión, desde análisis cinemático hasta pruebas en pista, optimizando geometría y amortiguación para máximo agarre y precisión de manejo en todas las condiciones de carrera.',
         
         // Administration Team
         'home.admin.planning.name': 'Planificación Estratégica',
