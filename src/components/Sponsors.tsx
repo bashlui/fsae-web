@@ -78,6 +78,15 @@ export default function Sponsors() {
       gradient: 'from-gray-600/20 to-slate-800/20',
       borderColor: 'border-gray-500/30',
       hoverColor: 'hover:border-gray-400/50'
+    },
+    {
+      name: 'Applied Intuition',
+      logo: '/sponsors/applied_intuition.png',
+      website: 'https://www.appliedintuition.com/',
+      description: t('sponsors.appliedIntuition.description'),
+      gradient: 'from-purple-600/20 to-indigo-800/20',
+      borderColor: 'border-purple-500/30',
+      hoverColor: 'hover:border-purple-400/50'
     }
   ];
 

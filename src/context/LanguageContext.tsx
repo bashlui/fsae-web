@@ -397,6 +397,7 @@ const translations = {
         'sponsors.busch.description': 'Technical equipment and parts supplier for racing applications.',
         'sponsors.ansys.description': 'Engineering simulation software for testing and optimization.',
         'sponsors.altair.description': 'Simulation and design technology company for advanced engineering.',
+        'sponsors.appliedIntuition.description': 'Provider of simulation software for autonomous vehicle development and testing.'
     },
     es: {
         // Navigation
@@ -782,6 +783,7 @@ const translations = {
         'sponsors.busch.description': 'Proveedor de equipos técnicos y piezas para aplicaciones de carreras.',
         'sponsors.ansys.description': 'Software de simulación de ingeniería para pruebas y optimización.',
         'sponsors.altair.description': 'Empresa de tecnología de simulación y diseño para ingeniería avanzada.',
+        'sponsors.appliedIntuition.description': 'Proveedor de software de simulación para desarrollo y pruebas de vehículos autónomos.'
     },
 };
 
